@@ -9,12 +9,23 @@
 }
 
 .app-content {
+    font-family: 'Arial Rounded MT Bold';
     background-color: #1BBB8F;
     text-align: center;
     color: white;
 }
 
 .app-content h1 {
-    font-family: 'Arial Rounded MT Bold';
-    font-size: 300%;
+    font-size: 400%;
+    margin-top: 20%;
+}
+
+.app-content ul li {
+    list-style-type: none;
+    width: 300px;
+    font-size: 150%;
+    border: 1px solid white;
+    border-radius: 20%;
+    margin: 0 auto;
+    padding: 10px;
 }
