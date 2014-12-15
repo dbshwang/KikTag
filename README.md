@@ -1,4 +1,0 @@
-KikTag
-======
-
-Best Card NA 

@@ -1,0 +1,20 @@
+/* put stuff here */
+
+.home-page {
+}
+
+.app-topbar {
+    background-color: #1BBB8F;
+    border: 0px;
+}
+
+.app-content {
+    background-color: #1BBB8F;
+    text-align: center;
+    color: white;
+}
+
+.app-content h1 {
+    font-family: 'Arial Rounded MT Bold';
+    font-size: 300%;
+}
