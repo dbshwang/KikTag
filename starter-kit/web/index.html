@@ -14,6 +14,7 @@
 		<link rel="stylesheet" href="/css/styles.css">
 		<link rel="stylesheet" href="/css/home.css">
 		<link rel="stylesheet" href="/css/page2.css">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 	</head>
 
 	<body>
@@ -22,25 +23,41 @@
             <div class="app-content">
                 <h1>#KikTag</h1>
                 <ul>
-                    <li><div class="app-button" data-target="profile">Your Profile</div></li>
-                    <li><div class="app-button" data-target="search_group">Look for Groups</div></li>
-                    <li><div class="app-button" data-target="kik_group">Kik your Group</div></li>
+                    <li><div class="app-button" data-target="profile"><i class="fa fa-user"></i>Your Profile</div></li>
+                    <li><div class="app-button" data-target="search_group"><i class="fa fa-search"></i>Discover Groups</div></li>
+                    <li><div class="app-button" data-target="kik_group"><i class="fa fa-tag"></i>Kik a Group</div></li>
                 </ul>
-                <div class="app-section">
-                    <div class="app-button" data-target="page2">Go to Page 2</div>
-                </div>
             </div>
 		</div>
+        
+        
+        <div class="app-page profile-page" data-page="profile">
+            <div class="app-topbar">
+                <div class="app-title">Your Profile</div>
+                <div class="app-button left" data-back data-autotitle></div>
+            </div>
+            <div class="app-content">
+            </div>
+        </div>
+        
+        <div class="app-page searchgroup-page" data-page="search_group">
+            <div class="app-topbar">
+                <div class="app-button left" data-back data-autotitle></div>
+                <div class="app-title">Discover Groups</div>
+            </div>
+            <div class="app-content">
+            </div>
+        </div>
+        
+        <div class="app-page kikgroup-page" data-page="kik_group">
+            <div class="app-topbar">
+                <div class="app-button left" data-back data-autotitle></div>
+                <div class="app-title">Kik a Group</div>
+            </div>
+            <div class="app-content">
+            </div>
+        </div>
 
-		<div class="app-page page2-page" data-page="page2">
-			<div class="app-topbar">
-				<div class="app-button left" data-back data-autotitle></div>
-				<div class="app-title">#KikTag<hr /></div>
-			</div>
-			<div class="app-content">
-				Page 2 is lonely
-			</div>
-		</div>
 
 		<!-- Scripts -->
 		<script src="/zerver/API.js"></script>
