@@ -1,5 +1,6 @@
 exports.create = create;
 function create(params, callback) {
-  console.log(params.data);
+console.log('YOU ARE IN CREATE!!!');   
+console.log(params.data);
   callback('ok');
 }

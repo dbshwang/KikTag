@@ -42,3 +42,7 @@ select {
 .linker {
   font-size: 200%;
 }
+
+#error {
+    padding-top: 20px;
+}
