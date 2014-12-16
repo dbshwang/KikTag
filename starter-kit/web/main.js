@@ -4,6 +4,4 @@
 	} catch (err) {
 		App.load('home');
 	}
-    
-    kik.browser.setOrientationLock('portrait');
 })(App);
