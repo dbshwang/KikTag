@@ -38,3 +38,7 @@ select {
 #desc {
   height: 100px;
 }
+
+.linker {
+  font-size: 200%;
+}
