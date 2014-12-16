@@ -14,6 +14,8 @@
 		<link rel="stylesheet" href="/css/styles.css">
 		<link rel="stylesheet" href="/css/home.css">
 		<link rel="stylesheet" href="/css/page2.css">
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+		<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 	</head>
 
 	<body>
@@ -38,7 +40,43 @@
 				<div class="app-title">#KikTag<hr /></div>
 			</div>
 			<div class="app-content">
-				Page 2 is lonely
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="container">
+							<form role="form" id="contact">
+								<div class="form-group">
+									<div class="row">
+										<div class="col-xs-6">
+											<label for="first-name"> *</label>
+											<input name="first-name" type="text" class="form-control" id="Name" placeholder="Name" data-validation-required-message="This field is required" required />
+										</div>
+										<div class="col-xs-6">
+											<label for="last-name">Desc</label>
+											<input name="last-name" type="text" class="form-control" id="Description" placeholder="Description" data-validation-required-message="This field is required" required />
+										</div>
+									</div>
+
+									<div class="row">
+										<div class="col-xs-12">
+											<label for="email">Hashtag</label>
+											<input name="email" type="email" class="form-control" id="hashtag" placeholder="" data-validation-required-message="This field is required" required />
+											<br/>
+										</div>
+									</div>
+
+									<br />
+									<div class="row">
+										<div class="col-xs-12">
+											<label for="message">Category</label>
+											<textarea name="message" class="form-control" id="category" rows="3" placeholder="Enter a brief message..." required ></textarea>
+										</div>
+									</div>
+								</div>
+								<input type="submit" class="btn btn-default btn-submit">Submit</input>
+							</form>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 
@@ -50,5 +88,31 @@
 		<script src="/controller/home.js"></script>
 		<script src="/controller/page2.js"></script>
 		<script src="/main.js"></script>
+		<script src="/zerver/API.js"></script>
+		<script>
+			$('form').submit(function(event){
+				event.preventDefault();
+				form_name 		= $('#Name').val();
+				form_desc 		= $('#Description').val();
+				form_hashtag 	= $('#hashtag').val();
+				form_category = $('#category').val();
+				formData = { data: { name: form_name, desc: form_desc, hashtag: form_hashtag, category: form_category };
+				zerver.get('API/handleFormRequest', formData ,
+					function (response, raw, status) {
+						//console.log(response);
+					}
+				);
+			});
+		</script>
+
+		<script>
+		zerver.post('API/updateData', {
+			data: { random: 'json' }
+		}, function (response, raw, status) {
+			// response.success === true
+			// raw === '{"success":true}'
+			// status === 200
+		});
+		</script>
 	</body>
 </html>
