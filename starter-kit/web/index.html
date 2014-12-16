@@ -1,62 +1,85 @@
 <!DOCTYPE html>
 <html manifest="manifest.appcache">
-	<head>
-		<!-- App info -->
-		<title>#KikTag</title>
-		<meta charset="utf-8">
-		<meta name="description" content="My amazing app!">
-		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-		<meta name="kik-prefer" content="true">
-		<link rel="kik-icon" href="/img/icon.png">
+<head>
+	<!-- App info -->
+	<title>#KikTag</title>
+	<meta charset="utf-8">
+	<meta name="description" content="My amazing app!">
+	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+	<meta name="kik-prefer" content="true">
+	<link rel="kik-icon" href="/img/icon.png">
 
-		<!-- Styles -->
-		<link rel="stylesheet" href="//cdn.kik.com/app/2.0.1/app.min.css">
-		<link rel="stylesheet" href="/css/styles.css">
-		<link rel="stylesheet" href="/css/home.css">
-		<link rel="stylesheet" href="/css/page2.css">
-        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-	</head>
+	<!-- Styles -->
+	<link rel="stylesheet" href="//cdn.kik.com/app/2.0.1/app.min.css">
+	<link rel="stylesheet" href="/css/home.css">
+	<link rel="stylesheet" href="/css/profile.css">
+	<link rel="stylesheet" href="/css/search_group.css">
+	<link rel="stylesheet" href="/css/kik_group.css">
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
 
-	<body>
-		<!-- Pages -->
-		<div class="app-page home-page" data-page="home">
-            <div class="app-content">
-                <h1>#KikTag</h1>
-                <ul>
-                    <li><div class="app-button" data-target="profile"><i class="fa fa-user"></i>Your Profile</div></li>
-                    <li><div class="app-button" data-target="search_group"><i class="fa fa-search"></i>Discover Groups</div></li>
-                    <li><div class="app-button" data-target="kik_group"><i class="fa fa-tag"></i>Kik a Group</div></li>
-                </ul>
-            </div>
+<body>
+	<!-- Pages -->
+	<div class="app-page home-page" data-page="home">
+		<div class="app-content">
+			<h1>#KikTag</h1>
+			<ul>
+				<li><div class="app-button" data-target="profile"><i class="fa fa-user"></i>Your Profile</div></li>
+				<li><div class="app-button" data-target="search_group"><i class="fa fa-search"></i>Discover Groups</div></li>
+				<li><div class="app-button" data-target="kik_group"><i class="fa fa-tag"></i>Submit a Group</div></li>
+			</ul>
 		</div>
-        
-        
-        <div class="app-page profile-page" data-page="profile">
-            <div class="app-topbar">
-                <div class="app-title">Your Profile</div>
-                <div class="app-button left" data-back data-autotitle></div>
-            </div>
-            <div class="app-content">
-            </div>
-        </div>
-        
-        <div class="app-page searchgroup-page" data-page="search_group">
-            <div class="app-topbar">
-                <div class="app-button left" data-back data-autotitle></div>
-                <div class="app-title">Discover Groups</div>
-            </div>
-            <div class="app-content">
-            </div>
-        </div>
-        
-        <div class="app-page kikgroup-page" data-page="kik_group">
-            <div class="app-topbar">
-                <div class="app-button left" data-back data-autotitle></div>
-                <div class="app-title">Kik a Group</div>
-            </div>
-            <div class="app-content">
-            </div>
-        </div>
+	</div>
+
+
+	<div class="app-page profile-page" data-page="profile">
+		<div class="app-topbar">
+			<div class="app-title">Your Profile</div>
+			<div class="app-button left" data-back data-autotitle></div>
+		</div>
+		<div class="app-content">
+		</div>
+	</div>
+
+	<div class="app-page searchgroup-page" data-page="search_group">
+		<div class="app-topbar">
+			<div class="app-button left" data-back data-autotitle></div>
+			<div class="app-title">Discover Groups</div>
+		</div>
+		<div class="app-content">
+		</div>
+	</div>
+
+	<div class="app-page kikgroup-page" data-page="kik_group">
+		<div class="app-topbar">
+			<div class="app-button left" data-back data-autotitle></div>
+			<div class="app-title">Kik a Group</div>
+		</div>
+		<div class="app-content">
+			<form class="groupsubmit" action="form.php">
+				<h2>Submit a <br />Group</h2>
+				<table>
+					<tr><td>#Hashtag</td><td><textarea rows="1" cols="18" name="hashtag" id="hashtag" maxlength="32"></textarea></td></tr>
+					<tr><td>Description</td><td><textarea rows="7" cols="18" name="desc" id="desc" maxlength="140"></textarea></td></tr>
+					<tr><td>Category</td><td>
+						<select type="text" name="category" id="category">
+							<option value="default">Choose a category</option>
+							<option value="sports">Sports</option>
+							<option value="news">News</option>
+							<option value="entertainment">Entertainment</option>
+							<option value="celebrity">Celebrity</option>
+							<option value="music">Music</option>
+							<option value="movies">Movies</option>
+							<option value="tv">Television</option>
+							<option value="social">Social</option>
+							<option value="food">Food</option>
+							<option value="other">Other</option>
+						</select></td></tr>
+						<tr><td colspan="2"><input type="button" name="submit" value="SUBMIT" id="submit"/></td></tr>
+					</table>
+				</form>
+			</div>
+		</div>
 
 
 		<!-- Scripts -->
@@ -68,4 +91,10 @@
 		<script src="/controller/page2.js"></script>
 		<script src="/main.js"></script>
 	</body>
-</html>
+	</html>
+
+
+	<!--Stars <i class="fa fa-star"></i> -->
+	<!--Half Stars <i class="fa fa-star-half-o"></i> -->
+
+	

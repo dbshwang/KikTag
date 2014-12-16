@@ -4,46 +4,45 @@
 }
 
 .app-topbar {
-    background-color: #1BBB8F;
-    border: 0px;
+  background-color: #1BBB8F;
+  border: 0px;
 }
 
 .app-content {
-    font-family: 'Arial Rounded MT Bold';
-    background-color: #1BBB8F;
-    text-align: center;
-    color: white;
+  font-family: 'Arial Rounded MT Bold';
+  background-color: #1BBB8F;
+  text-align: center;
+  color: white;
 }
 
 .app-content h1 {
-    font-size: 400%;
-    margin-top: 40%;
+  font-size: 400%;
+  margin-top: 40%;
 }
 
 .app-content ul {
-    margin-top: 15%;
+  margin-top: 15%;
 }
 
+
 .app-content ul li {
-    list-style-type: none;
-    width: 300px;
-    font-size: 150%;
-    border: 1px solid white;
-    border-radius: 20%;
-    margin: 0 auto;
-    padding: 10px;
+  list-style-type: none;
+  width: 80%;
+  font-size: 150%;
+  margin: 0 auto;
+  padding: 10px;
 }
 
 .app-content .app-button {
-    background-color: inherit !important;
-    color: white;
+  background-color: inherit;
+  color: white;
+}
+
+.app-content .app-button.active{
+  background-color: #1BBB8F;
+  color: #C0C0C0;
 }
 
 .fa {
-    padding-right: 10px;
-}
-
-.app-page .page2-page {
-    position: relative;
-    top: 0px;
+  padding-right: 10px;
 }
