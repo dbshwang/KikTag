@@ -1,48 +1,51 @@
+.groupsubmit {
+    position: relative;
+    bottom: 5%;
+}
+
 .app-content h2 {
-  font-size: 300%;
+    font-size: 300%;
 }
 
 .groupsubmit table {
-  width: 40%;
-  font-family: 'Arial Rounded MT Bold';
-  font-size: 130%;
-  margin: 0 auto;
+    font-family: 'Arial Rounded MT Bold';
+    font-size: 120%;
+    margin: 0 auto;
 }
 
 .groupsubmit td {
-  font-weight: bold;
-  text-align: left;
-  padding: 10px;
+    font-weight: bold;
+    text-align: left;
+    padding: 10px;
 }
 
 textarea {
-  font-family: 'Arial Rounded MT Bold';
-  border: 1px solid white;
-  border-radius: 5px;
+    font-family: 'Arial Rounded MT Bold';
+    border: 1px solid white;
+    border-radius: 5px;
 }
 
 #submit {
-  font-family: 'Arial Rounded MT Bold';
-  color: white;
-  background-color: #1BBB8F;
-  margin: 0 auto;
+    font-family: 'Arial Rounded MT Bold';
+    font-size: 70%;
+    width: 40%;
+    color: white;
+    border: 1px solid white;
+    background-color: #1BBB8F;
+    margin: 0 auto;
 }
 
 select {
-  height: 30px;
-  border-radius: 10px;
-  background-color: white;
-  font-size: 60%;
+    height: 30px;
+    border-radius: 10px;
+    background-color: white;
+    font-size: 60%;
 }
 
 #desc {
-  height: 100px;
+    height: 100px;
 }
 
 .linker {
-  font-size: 200%;
-}
-
-#error {
-    padding-top: 20px;
+    font-size: 200%;
 }
