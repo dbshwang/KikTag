@@ -33,7 +33,7 @@ function connectToDB(callback){
   var MongoClient = require('mongodb').MongoClient
   , format  = require('util').format;
   collection = {};
-  MongoClient.connect('mongodb://127.0.0.1:27017/HASHTAGS', function(err, db) {
+  MongoClient.connect('mongodb://10.10.20.78:27017/HASHTAGS', function(err, db) {
     if(err) throw err;
     callback(db);
   });

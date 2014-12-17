@@ -10,7 +10,7 @@ App.controller('new', function (page) {
         super_el = $('<div class="groupcontainer"></div>');
         for(var i = 0; i< hashtags.length; i++){
           el = $('<div class="populate_group"><div class="info"></div></div>');
-          el.find('.info').append('<h3>' + hashtags[i]['hashtag'] + '</h3>');
+          el.find('.info').append('<h3>' + '<a href="kik-share://kik.com/g/' + hashtags[i]['hashtag'] + '">' + hashtags[i]['hashtag'] + '</a></h3>');
           el.find('.info').append('<p>' + hashtags[i]['desc'] + '</p>');
           super_el.append(el);
         }
