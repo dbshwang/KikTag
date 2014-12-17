@@ -1,15 +1,11 @@
-App.controller('search_group', function (page) {
-    page.querySelector('.submit').addEventListener('click', function(){
-        App.load('kik_group', 'slideon-down');
-    });
-
+App.controller('new', function (page) {
+    
     function callback(str){
       // console.log(str);
       $('.supercontainer').append(str);
     }
 
-    $(page).on('appShow', function(){
-
+    $(page).on('appReady', function(){
       zerver.get('API/view', function(hashtags){
         super_el = $('<div class="groupcontainer"></div>');
         for(var i = 0; i< hashtags.length; i++){
@@ -21,5 +17,4 @@ App.controller('search_group', function (page) {
         callback(super_el);
       });
     });
-
 });
