@@ -19,28 +19,34 @@ App.controller('kik_group', function (page) {
             }
             formData = { data: { desc: form_desc, hashtag: form_hashtag, category: form_category, user: user_ }};
             API.create(formData, function(str){
-              console.log(str);
-              
-                var stack = App.getStack();
-                if (stack.length < 2){
-                    App.load('search_group');
-                    App.removeFromStack(-1);
-                } else if (stack[stack.length - 2][0] === 'search_group'){
-                    // Creation dialog from Discover Groups --> Submit a Group page
-                    App.back();
-                        App.dialog({
-                        title: 'Group Sucessfully Created',
-                        okButton: 'OK'
-                    });
-                } else {
-                    App.load('search_group');
-                    App.removeFromStack(-1);
-                    // Creation dialog from Submit a Group page
-                    App.dialog({
-                        title: 'Group Sucessfully Created',
-                        okButton: 'OK'
-                    });
+                if (str == 'Error') {
+                  App.dialog({
+                    title: 'Group Already Exists',
+                    okButton: 'OK'
+                  });
                 }
+                else {
+                  var stack = App.getStack();
+                  if (stack.length < 2){
+                      App.load('search_group');
+                      App.removeFromStack(-1);
+                  } else if (stack[stack.length - 2][0] === 'search_group'){
+                      // Creation dialog from Discover Groups --> Submit a Group page
+                      App.back();
+                          App.dialog({
+                          title: 'Group Sucessfully Created',
+                          okButton: 'OK'
+                      });
+                  } else {
+                      App.load('search_group');
+                      App.removeFromStack(-1);
+                      // Creation dialog from Submit a Group page
+                      App.dialog({
+                          title: 'Group Sucessfully Created',
+                          okButton: 'OK'
+                      });
+                  }
+              }
             });
         }
     }));
