@@ -6,11 +6,11 @@ App.controller('search_group', function (page) {
 
     function callback(str){
       // console.log(str);
-      console.log(str);
       $('.supercontainer').append(str);
     }
 
     $(page).on('appShow', function(){
+
       zerver.get('API/view', function(hashtags){
         super_el = $('<div class="groupcontainer"></div>');
         for(var i = 0; i< hashtags.length; i++){
@@ -23,7 +23,4 @@ App.controller('search_group', function (page) {
       });
     });
 
-    page.querySelector('.list').addEventListener('click', function(){
-        $("#scrollbar").toggle();
-    });
 });

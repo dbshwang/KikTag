@@ -6,7 +6,6 @@ function create(params, callback) {
     collection = db.collection('submitted_hashtags');
 
    collection.insert(doc, function(err, objects) {
-     console.log(err);
       if (err) callback('Error');
       else callback('ok');
       db.close();
@@ -21,7 +20,6 @@ function view(params, callback){
   connectToDB( function(db) {
     collection = db.collection('submitted_hashtags');
     collection.find().toArray(function(err, docs){
-       console.log(err);
        docs.forEach(function(doc){
          delete doc['_id'];
        });
