@@ -6,6 +6,7 @@ App.controller('search_group', function (page) {
 
     function callback(str){
       // console.log(str);
+      console.log(str);
       $('.supercontainer').append(str);
     }
 
