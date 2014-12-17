@@ -19,21 +19,41 @@ exports.view = view;
 function view(params, callback){
   connectToDB( function(db) {
     collection = db.collection('submitted_hashtags');
-    collection.find().toArray(function(err, docs){
-       docs.forEach(function(doc){
-         delete doc['_id'];
-       });
-       callback(docs);
-       db.close();
-    });
+    searchParams = defineSearchParams(params);
+  if(params['category'] == 'new'){
+      searchParams = defineSearchParams(params);
+      collection.find().sort({date: -1}).toArray(function(err, docs){
+        docs.forEach(function(doc){
+          delete doc['_id'];
+        });
+        callback(docs);
+        db.close();
+      });
+    }
+    else{
+      searchParams = defineSearchParams(params);
+      collection.find(searchParams).toArray(function(err, docs){
+        docs.forEach(function(doc){
+          delete doc['_id'];
+        });
+        callback(docs);
+        db.close();
+      });
+    }
   });
+}
+
+function defineSearchParams(params){
+  category     = params['category'];
+  searchParams = {category : category};
+  return searchParams;
 }
 
 function connectToDB(callback){
   var MongoClient = require('mongodb').MongoClient
   , format  = require('util').format;
   collection = {};
-  MongoClient.connect('mongodb://10.10.20.78:27017/HASHTAGS', function(err, db) {
+  MongoClient.connect('mongodb://127.0.0.1:27017/HASHTAGS', function(err, db) {
     if(err) throw err;
     callback(db);
   });
