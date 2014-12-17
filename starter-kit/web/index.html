@@ -20,7 +20,7 @@
 </head>
 
 <body>
-	<!-- Pages -->
+	<!-- Main Page -->
 	<div class="app-page home-page" data-page="home">
 		<div class="app-content">
 			<h1>#KikTag</h1>
@@ -43,42 +43,194 @@
 		</div>
 	</div>
 
-
+    
     <!--  Discover Group Pages  -->
 	<div class="app-page searchgroup-page" data-page="search_group">
 		<div class="app-topbar">
 			<div class="app-button left" data-back></div>
-			<div class="app-title">Discover Groups<div class="app-button right list"><i class="fa fa-list-ul"></i></div></div>
-            <div id="scrollbar">
-				<ul>
-					<!-- <span style="color: -->
-					<li><b>New</b></li>
-					<li>Sports</li>
-					<li>Entertainment</li>
-					<li>Celebrity</li>
-					<li>Music</li>
-					<li>Movies</li>
-					<li>Television</li>
-					<li>Social</li>
-					<li>Food</li>
-					<li>Other</li>
-				</ul>
-			</div>
-		</div>
+			<div class="app-title">Discover Groups</div>
+            <div class="app-button right submit"><i class="fa fa-plus"></i></div>
+        </div>
+        <div class="app-content">
+            <div class="list">
+                <ul>
+                    <li><div class="app-button" data-target="new">New</div></li>
+                    <li><div class="app-button" data-target="celebrity">Celebrity</div></li>
+                    <li><div class="app-button" data-target="entertainment">Entertainment</div></li>
+                    <li><div class="app-button" data-target="food">Food</div></li>
+                    <li><div class="app-button" data-target="movies">Movies</div></li>
+                    <li><div class="app-button" data-target="music">Music</div></li>
+                    <li><div class="app-button" data-target="social">Social</div></li>
+                    <li><div class="app-button" data-target="sports">Sports</div></li>
+                    <li><div class="app-button" data-target="television">Television</div></li>
+                    <li><div class="app-button" data-target="other">Other</div></li>
+                </ul>
+            </div>
+        </div>
+	</div>
 
-			<!-- Need to populate this container with the backend -->
-			<div class="secondary_topbar"></div>
-			<div class="supercontainer">
+    
+<!--  NEW  -->    
+    <div class="app-page new-page" data-page="new">
+        <div class="app-topbar">
+            <div class="app-button left" data-back></div>
+            <div class="app-title">Categories</div>
+        </div>
+        
+        <div class="app-content">
+        <!-- Need to populate this container with the backend -->      
+            <div class="supercontainer">
+                <div class="groupcontainer">
+                    <div class="topbar">New</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+<!--  CELEBRITY  -->
+    <div class="app-page celebrity-page" data-page="celebrity">
+        <div class="app-topbar">
+            <div class="app-button left" data-back></div>
+            <div class="app-title">Categories</div>
+        </div>
 
-			<div class="app-content">
-      	<div class="app-button right submit"><i class="fa fa-plus"> Add a Group</i></div>
-				<!-- Need to populate this container with the backend -->
-    		<div class="topbar">News</div>
-				</div>
-			</div>
-		</div>
+        <div class="app-content">
+        <!-- Need to populate this container with the backend -->            
+            <div class="groupcontainer">
+                <div class="topbar">Celebrity</div>
+            </div>
+        </div>
+    </div>
 
+<!-- ENTERTAINMENT -->
+    <div class="app-page entertainment-page" data-page="entertainment">
+        <div class="app-topbar">
+            <div class="app-button left" data-back></div>
+            <div class="app-title">Categories</div>
+        </div>
 
+        <div class="app-content">
+        <!-- Need to populate this container with the backend -->            
+            <div class="groupcontainer">
+                <div class="topbar">Entertainment</div>
+            </div>
+        </div>
+    </div>    
+    
+    
+<!--  FOOD  -->
+    <div class="app-page food-page" data-page="food">
+        <div class="app-topbar">
+            <div class="app-button left" data-back></div>
+            <div class="app-title">Categories</div>
+        </div>
+
+        <div class="app-content">
+        <!-- Need to populate this container with the backend -->            
+            <div class="groupcontainer">
+                <div class="topbar">Food</div>
+            </div>
+        </div>
+    </div>    
+    
+    
+<!--  MOVIES  -->
+    <div class="app-page new-page" data-page="movies">
+        <div class="app-topbar">
+            <div class="app-button left" data-back></div>
+            <div class="app-title">Categories</div>
+        </div>
+
+        <div class="app-content">
+        <!-- Need to populate this container with the backend -->            
+            <div class="groupcontainer">
+                <div class="topbar">Movies</div>
+            </div>
+        </div>
+    </div>   
+    
+    
+<!--  MUSIC  -->
+    <div class="app-page music-page" data-page="music">
+        <div class="app-topbar">
+            <div class="app-button left" data-back></div>
+            <div class="app-title">Categories</div>
+        </div>
+
+        <div class="app-content">
+        <!-- Need to populate this container with the backend -->            
+            <div class="groupcontainer">
+                <div class="topbar">Music</div>
+            </div>
+        </div>
+    </div>    
+    
+    
+<!--  SOCIAL  -->
+    <div class="app-page social-page" data-page="social">
+        <div class="app-topbar">
+            <div class="app-button left" data-back></div>
+            <div class="app-title">Categories</div>
+        </div>
+
+        <div class="app-content">
+        <!-- Need to populate this container with the backend -->            
+            <div class="groupcontainer">
+                <div class="topbar">Social</div>
+            </div>
+        </div>
+    </div>    
+    
+    
+<!--  SPORTS  -->
+    <div class="app-page sports-page" data-page="sports">
+        <div class="app-topbar">
+            <div class="app-button left" data-back></div>
+            <div class="app-title">Categories</div>
+        </div>
+
+        <div class="app-content">
+        <!-- Need to populate this container with the backend -->            
+            <div class="groupcontainer">
+                <div class="topbar">Sports</div>
+            </div>
+        </div>
+    </div>    
+    
+    
+<!--  TELEVISION  -->
+    <div class="app-page television-page" data-page="television">
+        <div class="app-topbar">
+            <div class="app-button left" data-back></div>
+            <div class="app-title">Categories</div>
+        </div>
+
+        <div class="app-content">
+        <!-- Need to populate this container with the backend -->            
+            <div class="groupcontainer">
+                <div class="topbar">Celebrity</div>
+            </div>
+        </div>
+    </div>    
+    
+    
+<!--  OTHER  -->
+    <div class="app-page other-page" data-page="other">
+        <div class="app-topbar">
+            <div class="app-button left" data-back></div>
+            <div class="app-title">Categories</div>
+        </div>
+
+        <div class="app-content">
+        <!-- Need to populate this container with the backend -->            
+            <div class="groupcontainer">
+                <div class="topbar">Other</div>
+            </div>
+        </div>
+    </div>    
+    
+    
     <!-- Submit a Group Page-->
 	<div class="app-page kikgroup-page" data-page="kik_group">
 		<div class="app-topbar">
@@ -102,7 +254,7 @@
                             <select type="text" name="category" id="category">
                                 <option>Choose a category</option>
                                 <option value="sports">Sports</option>
-                                <option value="news">News</option>
+                                <option value="news">New</option>
                                 <option value="entertainment">Entertainment</option>
                                 <option value="celebrity">Celebrity</option>
                                 <option value="music">Music</option>
@@ -110,25 +262,18 @@
                                 <option value="tv">Television</option>
                                 <option value="social">Social</option>
                                 <option value="food">Food</option>
-                                <option value="food">Food</option>
                                 <option value="other">Other</option>
                             </select>
                         </td>
                         <td><div id="ecategory"></div></td>
                     </tr>
-						<tr><td colspan="2">
+						<tr><td colspan="3">
                             <div class="app-button" id="submit">SUBMIT</div>
                         </td></tr>
 				</table>
-<<<<<<< HEAD
-
-                            <div id="error"></div>
-=======
-                <div id="error"></div>
->>>>>>> origin/master
             </form>
-			</div>
-		</div>
+        </div>
+    </div>
 
 
 		<!-- Scripts -->
@@ -139,6 +284,7 @@
 		<script src="/controller/home.js"></script>
 		<script src="/controller/kik_group.js"></script>
         <script src="/controller/search_group.js"></script>
+        <script src="/controller/new.js"></script>
 		<script src="/main.js"></script>
 
 	</body>
