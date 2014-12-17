@@ -43,9 +43,9 @@ function connectToDB(callback){
 
 function init_doc(data){
   doc = {};
-  doc['hashtag']  = data['hashtag'];
-  doc['user']     = data['user'];
-  doc['category'] = data['category'];
+  doc['hashtag']  = data['hashtag'].toLowerCase();
+  doc['user']     = data['user'].toLowerCase();
+  doc['category'] = data['category'].toLowerCase();
   doc['rating']   = 0;
   doc['date']     = (new Date().getTime() / 1000);
   doc['desc']     = data['desc'];
