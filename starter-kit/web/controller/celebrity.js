@@ -168,7 +168,6 @@ App.controller('television', function (page) {
 });
 
 App.controller('other', function (page) {
-
   function callback(str){
     $(page).find('.app-content').append(str);
   }

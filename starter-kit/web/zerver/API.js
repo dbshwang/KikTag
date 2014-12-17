@@ -20,33 +20,25 @@ function view(params, callback){
   connectToDB( function(db) {
     collection = db.collection('submitted_hashtags');
     searchParams = defineSearchParams(params);
-  if(params['category'] == 'new'){
-      searchParams = defineSearchParams(params);
-      collection.find().sort({date: -1}).toArray(function(err, docs){
-        docs.forEach(function(doc){
-          delete doc['_id'];
-        });
-        callback(docs);
-        db.close();
+    collection.find(searchParams).sort({date: -1}).toArray(function(err, docs){
+      docs.forEach(function(doc){
+        delete doc['_id'];
       });
-    }
-    else{
-      searchParams = defineSearchParams(params);
-      collection.find(searchParams).toArray(function(err, docs){
-        docs.forEach(function(doc){
-          delete doc['_id'];
-        });
-        callback(docs);
-        db.close();
-      });
-    }
+      callback(docs);
+      db.close();
+    });
   });
 }
 
 function defineSearchParams(params){
-  category     = params['category'];
-  searchParams = {category : category};
-  return searchParams;
+  if(params['category'] == 'new'){
+     return {};
+  }
+  else{
+    category     = params['category'];
+    searchParams = {category : category};
+    return searchParams;
+  }
 }
 
 function connectToDB(callback){
