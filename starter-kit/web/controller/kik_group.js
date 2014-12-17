@@ -4,7 +4,7 @@ App.controller('kik_group', function (page) {
         console.log('here');
         event.preventDefault();
         var checkvalue = formCheck();
-        
+
         if(checkvalue == true) {
             form_desc 		= $('#desc').val();
             form_hashtag 	= $('#hashtag').val();
@@ -18,9 +18,9 @@ App.controller('kik_group', function (page) {
                 }, true);
             }
             formData = { data: { desc: form_desc, hashtag: form_hashtag, category: form_category, user: user_ }};
-            console.log(formData);
             API.create(formData, function(str){
-                console.log(str);
+              console.log(str);
+              
                 var stack = App.getStack();
                 if (stack.length < 2){
                     App.load('search_group');
@@ -44,7 +44,7 @@ App.controller('kik_group', function (page) {
             });
         }
     }));
-    
+
     // Array to hold all the form values
 			function formCheck() {
 				var fields = new Array();
@@ -55,10 +55,10 @@ App.controller('kik_group', function (page) {
 
 				// Checking empty fields
 				for(var i = 0; i < fields.length; i++) {
-					if(fields[i] == "" || 
-                       fields[i] == "Choose a category" || 
-                       fields[i] == "#" || 
-                       fields[0].indexOf('#') != 0 || 
+					if(fields[i] == "" ||
+                       fields[i] == "Choose a category" ||
+                       fields[i] == "#" ||
+                       fields[0].indexOf('#') != 0 ||
                        fields[0].length <= 2) {
                         switch(i) {
                                 case 0:
