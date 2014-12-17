@@ -1,7 +1,6 @@
 App.controller('kik_group', function (page) {
 
     page.querySelector('#submit').addEventListener('click' , (function(event) {
-        console.log('here');
         event.preventDefault();
         var checkvalue = formCheck();
 
