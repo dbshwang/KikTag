@@ -28,21 +28,30 @@
   margin: 0 auto;
 }
 
-.scrollbar {
-  white-space: nowrap;
-  overflow: auto;
-  height: 30px;
-  border-top: 1px solid white;
-  border-bottom: 1px solid white;
-  padding: 5px 0 5px 0;
+#scrollbar {
+    position: absolute;
+    display: none;
+    right: 0px;
+    background-color: white;
+    height: auto;
+    width: 50%;
+    border: 1px solid white;
 }
 
-.scrollbar ul {
+#scrollbar ul {
   padding: 0;
   margin: 0;
 }
 
-.scrollbar ul li {
-  list-style-type: none;
-  display: inline;
+#scrollbar ul li {
+    color: #1BBB8F;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    list-style-type: none;
+}
+
+.topbar {
+    margin-top: 0;
+    font-size: 200%;
 }

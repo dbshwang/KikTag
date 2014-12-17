@@ -33,6 +33,7 @@
 	</div>
 
 
+    <!--  Profile Page  -->
 	<div class="app-page profile-page" data-page="profile">
 		<div class="app-topbar">
 			<div class="app-title">Your Profile</div>
@@ -42,15 +43,13 @@
 		</div>
 	</div>
 
+
+    <!--  Discover Group Pages  -->
 	<div class="app-page searchgroup-page" data-page="search_group">
 		<div class="app-topbar">
 			<div class="app-button left" data-back></div>
-			<div class="app-title">Discover Groups<div class="app-button right submit"><i class="fa fa-plus"></i></div></div>
-		</div>
-
-		<div class="app-content">
-
-			<div class="scrollbar">
+			<div class="app-title">Discover Groups<div class="app-button right list"><i class="fa fa-list-ul"></i></div></div>
+            <div id="scrollbar">
 				<ul>
 					<!-- <span style="color: -->
 					<li><b>New</b></li>
@@ -65,15 +64,22 @@
 					<li>Other</li>
 				</ul>
 			</div>
+		</div>
 
 			<!-- Need to populate this container with the backend -->
 			<div class="secondary_topbar"></div>
 			<div class="supercontainer">
-				
+
+			<div class="app-content">
+      	<div class="app-button right submit"><i class="fa fa-plus"> Add a Group</i></div>
+				<!-- Need to populate this container with the backend -->
+    		<div class="topbar">News</div>
+				</div>
 			</div>
 		</div>
-	</div>
 
+
+    <!-- Submit a Group Page-->
 	<div class="app-page kikgroup-page" data-page="kik_group">
 		<div class="app-topbar">
 			<div class="app-button left" data-back></div>
@@ -114,8 +120,12 @@
                             <div class="app-button" id="submit">SUBMIT</div>
                         </td></tr>
 				</table>
+<<<<<<< HEAD
 
                             <div id="error"></div>
+=======
+                <div id="error"></div>
+>>>>>>> origin/master
             </form>
 			</div>
 		</div>
