@@ -14,6 +14,22 @@ function create(params, callback) {
   });
 }
 
+user.type = 'GET';
+exports.user = user;
+function user(params, callback){
+  connectToDB(function(db){
+    collection = db.collection('submitted_hashtags');
+    userName   = params['user'];
+    collection.find({user : userName}).sort({date: -1}).toArray(function(err, docs){
+      docs.forEach(function(doc){
+        delete doc['_id'];
+      });
+      callback(docs);
+      db.close();
+    });
+  });
+}
+
 view.type = 'GET';
 exports.view = view;
 function view(params, callback){

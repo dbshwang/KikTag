@@ -1,0 +1,221 @@
+/* Dialogs */
+
+.app-ios .app-dialog-container {
+  background-color: rgba(0,0,0,0);
+  opacity: 1;
+  -webkit-transition: background 0.425s cubic-bezier(0.4,0.6,0.05,1);
+  transition: background 0.425s cubic-bezier(0.4,0.6,0.05,1);
+}
+.app-ios-7 .app-dialog-container ,
+.app-ios-8 .app-dialog-container {
+  position:absolute;
+}
+.app-ios .app-dialog-container.enabled {
+  background-color: rgba(0,0,0,0.8);
+}
+.app-dialog {
+  padding-bottom: 0px;
+  background: #fff;
+  bottom: 50%;
+  margin: 0 10%;
+  width: 80%;
+  -webkit-box-shadow: 0 0 8px rgba(0,0,0,0.5);
+  box-shadow: 0 0 8px rgba(0,0,0,0.5);
+  -webkit-transform: translate3d(0,50%,0);
+  transform: translate3d(0,50%,0);
+}
+.app-ios .app-dialog-container .app-dialog {
+  top: 50%;
+  bottom: auto;
+  -webkit-transform: translate3d(0,380px,0);
+  transform: translate3d(0,380px,0);
+  -webkit-transition: -webkit-transform 0.425s cubic-bezier(0.4,0.6,0.05,1);
+  transition: transform 0.425s cubic-bezier(0.4,0.6,0.05,1);
+}
+.app-ios .app-dialog-container.enabled .app-dialog {
+  -webkit-transform: translate3d(0,-50%,0);
+  transform: translate3d(0,-50%,0);
+}
+.app-ios .app-dialog-container.closing.closing-success .app-dialog {
+  -webkit-transform: translate3d(0,-664px,0);
+  transform: translate3d(0,-664px,0);
+}
+.app-ios .app-dialog {
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
+}
+.app-android .app-dialog {
+  padding-bottom: 0;
+}
+
+.app-dialog .title {
+  color: #F1B82D;
+}
+.app-ios .app-dialog.points .title {
+  font-weight: 300;
+}
+
+.app-dialog .text {
+  color: #26272e;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.app-dialog .button,
+.app-dialog .button.ok {
+  color: #fff;
+  background-color: rgb(240,183,62);
+}
+.app-dialog.submit-lock .button.ok {
+  opacity: 1;
+  color: #fff;
+  background-color: rgb(227,228,231);
+}
+.app-dialog.submit-lock .button.ok.active {
+  opacity: 1;
+}
+
+.app-dialog .button.inactive {
+  background-color: #F6D075;
+}
+
+.app-dialog .button.close {
+  color: black;
+  background-color: rgb(227,228,231);
+}
+
+.app-dialog .button.first,
+.app-dialog .button.last {
+  float: left;
+  width: 50%;
+}
+
+.app-dialog .button.first:before {
+  clear: left;
+}
+
+.app-dialog .button.last:after {
+  clear: right;
+}
+
+.app-dialog .button.first.last {
+  float: none;
+  width: auto;
+}
+
+.app-ios .app-dialog .button.first {
+  -webkit-border-radius: 0 0 0 8px;
+  border-radius: 0 0 0 8px;
+}
+.app-ios .app-dialog .button.last {
+  -webkit-border-radius: 0 0 8px 0;
+  border-radius: 0 0 8px 0;
+}
+.app-ios .app-dialog .button.first.last {
+  -webkit-border-radius: 0 0 8px 8px;
+  border-radius: 0 0 8px 8px;
+}
+
+
+/* earnings dialog specific */
+
+.app-ios .app-dialog-container .app-dialog.earnings {
+  opacity: 1;
+  -webkit-transition: -webkit-transform 0.425s cubic-bezier(0.4,0.6,0.05,1), opacity 0.425s linear;
+  transition: transform 0.425s cubic-bezier(0.4,0.6,0.05,1), opacity 0.425s linear;
+}
+.app-ios .app-dialog-container.enabled .app-dialog.earnings {
+  -webkit-transform: translate3d(0,-50%,0) scale(1);
+  transform: translate3d(0,-50%,0) scale(1);
+}
+.app-ios .app-dialog-container.closing .app-dialog.earnings,
+.app-ios .app-dialog-container.closing.closing-success .app-dialog.earnings {
+  opacity: 0;
+  -webkit-transform: translate3d(55%,-340px,0) scale(0);
+  transform: translate3d(55%,-340px,0) scale(0);
+}
+@media (min-height: 500px) {
+  .app-ios .app-dialog-container.closing .app-dialog.earnings,
+  .app-ios .app-dialog-container.closing.closing-success .app-dialog.earnings {
+    -webkit-transform: translate3d(55%,-390px,0) scale(0);
+    transform: translate3d(55%,-390px,0) scale(0);
+  }
+}
+@media (min-height: 600px) {
+  .app-ios .app-dialog-container.closing .app-dialog.earnings,
+  .app-ios .app-dialog-container.closing.closing-success .app-dialog.earnings {
+    -webkit-transform: translate3d(55%,-430px,0) scale(0);
+    transform: translate3d(55%,-430px,0) scale(0);
+  }
+}
+@media (min-height: 700px) {
+  .app-ios .app-dialog-container.closing .app-dialog.earnings,
+  .app-ios .app-dialog-container.closing.closing-success .app-dialog.earnings {
+    -webkit-transform: translate3d(55%,-464px,0) scale(0);
+    transform: translate3d(55%,-464px,0) scale(0);
+  }
+}
+
+.app-dialog.earnings .title {
+  color: #26272e;
+}
+.app-dialog.points.earnings.feedback-complete .title {
+  color: #F1B82D;
+}
+
+.app-dialog.earnings .transaction-list {
+  margin-top: 30px;
+}
+
+.app-dialog.earnings .transaction {
+  width: 116px;
+  position: relative;
+  left: 50%;
+  margin-left: -58px;
+}
+
+.app-dialog.earnings .points  {
+  color: #F1B82D;
+  font-size: 22px;
+  float: left;
+  width: 50px;
+  text-align: center;
+  line-height: 56px;
+  padding-left: 6px;
+}
+
+.app-dialog.earnings .icon {
+  width: 44px;
+  height: 44px;
+  margin: 6px;
+  float: left;
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.app-ios .app-dialog.earnings .icon {
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
+}
+
+.smiley-win > .text {
+  margin-bottom: 6px;
+}
+.smiley-win .button {
+  font-size: 19px;
+}
+.smiley-dialog-container {}
+.smiley-dialog-container .image {
+  margin: 0 auto;
+  height: 48px;
+  width: 160px;
+  background-image: url(/img/mystery-smiley.png?inline=1);
+  -webkit-background-size: 100%;
+  background-size: 100%;
+}
+.smiley-dialog-container .text {
+  margin-top: 14px;
+  margin-bottom: 0;
+  color: #5C5C5C;
+}
