@@ -1,8 +1,7 @@
 App.controller('new', function (page) {
-
     function callback(str){
-      // console.log(str);
-      $('.supercontainer').append(str);
+      console.log(str);
+      $(page).find('.app-content').append(str);
     }
 
     $(page).on('appReady', function(){
