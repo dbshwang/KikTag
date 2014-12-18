@@ -21,5 +21,4 @@ App.controller('search_group', function (page) {
         callback(super_el);
       });
     });
-
 });

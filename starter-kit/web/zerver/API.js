@@ -14,26 +14,54 @@ function create(params, callback) {
   });
 }
 
+user.type = 'GET';
+exports.user = user;
+function user(params, callback){
+  connectToDB(function(db){
+    collection = db.collection('submitted_hashtags');
+    userName   = params['user'];
+    collection.find({user : userName}).sort({date: -1}).toArray(function(err, docs){
+      docs.forEach(function(doc){
+        delete doc['_id'];
+      });
+      callback(docs);
+      db.close();
+    });
+  });
+}
+
 view.type = 'GET';
 exports.view = view;
 function view(params, callback){
   connectToDB( function(db) {
     collection = db.collection('submitted_hashtags');
-    collection.find().toArray(function(err, docs){
-       docs.forEach(function(doc){
-         delete doc['_id'];
-       });
-       callback(docs);
-       db.close();
+    searchParams = defineSearchParams(params);
+    collection.find(searchParams).sort({date: -1}).toArray(function(err, docs){
+      docs.forEach(function(doc){
+        delete doc['_id'];
+      });
+      callback(docs);
+      db.close();
     });
   });
+}
+
+function defineSearchParams(params){
+  if(params['category'] == 'new'){
+     return {};
+  }
+  else{
+    category     = params['category'];
+    searchParams = {category : category};
+    return searchParams;
+  }
 }
 
 function connectToDB(callback){
   var MongoClient = require('mongodb').MongoClient
   , format  = require('util').format;
   collection = {};
-  MongoClient.connect('mongodb://10.10.20.78:27017/HASHTAGS', function(err, db) {
+  MongoClient.connect('mongodb://127.0.0.1:27017/HASHTAGS', function(err, db) {
     if(err) throw err;
     callback(db);
   });
