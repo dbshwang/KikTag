@@ -19,13 +19,26 @@ App.controller('new', function (page) {
 
     });
     
-    // TAPPING ON A GROUP IN DISCOVER GROUP PAGE --> GROUPS NAMES NEED TO AUTOMATICALLY BE INPUTTED
+    //  TAPPING ON A GROUP IN DISCOVER GROUP PAGE --> GROUPS NAMES NEED TO AUTOMATICALLY BE INPUTTED
+    node = document.createElement("div");
+    node.className = "rating";
+    $(node).append('<label> <input type="radio" name="star" value="1"/> <img src="img/star.png"> <input type="radio" name="star" value="2"/> <img src="img/star.png"> <input type="radio" name="star" value="3"/> <img src="img/star.png"> <input type="radio" name="star" value="4"/> <img src="img/star.png"> <input type="radio" name="star" value="5"/> <img src="img/star.png"> </label>');
+    
+    var logID = 'log',
+      log = $('<div id="'+logID+'"></div>');
+    $('body').append(log);
+      $('[type*="radio"]').change(function () {
+        var me = $(this);
+        log.html(me.attr('value'));
+      });
     
     page.querySelector(".populate_group").addEventListener('click' , (function(event) {
         App.dialog({title: "#Poop",
                     text: "Rate the Group",
+                    rawHTML: node,
                     viewButton: "View Group",
-                    okButton: "Cancel"
+                    okButton: "Cancel",
+                    dark: false
         }, function(choice) {
                 if(choice === "view") {
                     kik.open('kik-share://kik.com/g/#poop');
