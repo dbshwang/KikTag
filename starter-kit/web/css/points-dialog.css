@@ -1,7 +1,7 @@
 /* Dialogs */
 
 .app-ios .app-dialog-container {
-	background-color: rgba(0,0,0,0);
+	background-color: rgba(0,0,0,0.8);
 	opacity: 1;
 	-webkit-transition: background 0.425s cubic-bezier(0.4,0.6,0.05,1);
 	transition: background 0.425s cubic-bezier(0.4,0.6,0.05,1);
@@ -44,6 +44,7 @@
 	-webkit-border-radius: 8px;
 	border-radius: 8px;
 }
+
 .app-android .app-dialog {
 	padding-bottom: 0;
 }
@@ -61,10 +62,14 @@
 	margin-bottom: 20px;
 }
 
-.app-dialog .button,
+.app-dialog .button {
+    color: #fff;
+    background-color: #1BBB8F;
+}
+
 .app-dialog .button.ok {
-	color: #fff;
-	background-color: #1BBB8F;
+	color: #000;
+	background-color: #E3E4E7;
 }
 .app-dialog.submit-lock .button.ok {
 	opacity: 1;
@@ -79,15 +84,10 @@
 	background-color: #1BBB8F;
 }
 
-.app-dialog .button.close {
-	color: black;
-	background-color: rgb(227,228,231);
-}
-
 .app-dialog .button.first,
-.app-dialog .button.last {
+.app-dialog .button {
+    width: 100%;
 	float: left;
-	width: 50%;
 }
 
 .app-dialog .button.first:before {
@@ -176,7 +176,7 @@
 
 .app-dialog.earnings .points  {
 	color: #1BBB8F;
-	font-size: 22px;
+	font-size: 16px;
 	float: left;
 	width: 50px;
 	text-align: center;
@@ -203,7 +203,7 @@
 	margin-bottom: 6px;
 }
 .smiley-win .button {
-	font-size: 19px;
+	font-size: 16px;
 }
 .smiley-dialog-container {}
 .smiley-dialog-container .image {

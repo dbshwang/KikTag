@@ -114,7 +114,7 @@ App._Dialog = function (window, document, Clickable, App, Utils, OldDialog, kik)
         }
       }, false);
     }
-
+      
     var dialog = document.createElement('div');
     dialog.className = 'app-dialog';
     if (options.theme) {

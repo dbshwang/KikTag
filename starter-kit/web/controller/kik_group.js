@@ -21,7 +21,7 @@ App.controller('kik_group', function (page) {
                 if (str == 'Error') {
                   App.dialog({
                     title: 'Group Already Exists',
-                    okButton: 'OK'
+                    cancelButton: 'OK'
                   });
                 }
                 else {
@@ -34,7 +34,7 @@ App.controller('kik_group', function (page) {
                       App.back();
                           App.dialog({
                           title: 'Group Sucessfully Created',
-                          okButton: 'OK'
+                          cancelButton: 'OK'
                       });
                   } else {
                       App.load('search_group');
@@ -42,7 +42,7 @@ App.controller('kik_group', function (page) {
                       // Creation dialog from Submit a Group page
                       App.dialog({
                           title: 'Group Sucessfully Created',
-                          okButton: 'OK'
+                          cancelButton: 'OK'
                       });
                   }
               }
@@ -73,7 +73,7 @@ App.controller('kik_group', function (page) {
                                     App.dialog({
                                         title: 'Error: Invalid Hashtag',
                                         text: 'Please enter a valid hashtag',
-                                        okButton: 'OK'
+                                        myButton: 'OK'
                                     });
                                     break;
                                 case 1:
@@ -83,7 +83,7 @@ App.controller('kik_group', function (page) {
                                     App.dialog({
                                         title: 'Error: Invalid Description',
                                         text: 'Please enter a valid description',
-                                        okButton: 'OK'
+                                        myButton: 'OK'
                                     });
                                     break;
                                 default:
@@ -93,7 +93,7 @@ App.controller('kik_group', function (page) {
                                     App.dialog({
                                         title: 'Error: Invalid Category',
                                         text: 'Please enter a valid category',
-                                        okButton: 'OK'
+                                        myButton: 'OK'
                                     });
                         }
 						return false;

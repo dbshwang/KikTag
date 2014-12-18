@@ -18,4 +18,19 @@ App.controller('new', function (page) {
         });
 
     });
+    
+    // TAPPING ON A GROUP IN DISCOVER GROUP PAGE --> GROUPS NAMES NEED TO AUTOMATICALLY BE INPUTTED
+    
+    page.querySelector(".populate_group").addEventListener('click' , (function(event) {
+        App.dialog({title: "#Poop",
+                    text: "Rate the Group",
+                    viewButton: "View Group",
+                    okButton: "Cancel"
+        }, function(choice) {
+                if(choice === "view") {
+                    kik.open('kik-share://kik.com/g/#poop');
+                }
+            }
+        )
+    }));
 });
