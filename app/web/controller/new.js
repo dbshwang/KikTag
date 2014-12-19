@@ -17,6 +17,7 @@ App.controller('new', function (page) {
           }
         });
     }
+
     $(page).on('appReady', function(){
         category = ($(page).data('page'));
         zerver.get('API/view', {category: category} , function(hashtags){
@@ -34,4 +35,33 @@ App.controller('new', function (page) {
           callback(super_el);
         });
     });
+    
+  page.querySelector(".rater").addEventListener('click' , function(event) {
+    var stars = [
+        { id: 'star1', optionClass: 'star', checkClass: 'checked' },
+        { id: 'star2', optionClass: 'star', checkClass: 'checked' },
+        { id: 'star3', optionClass: 'star', checkClass: 'checked' },
+        { id: 'star4', optionClass: 'star', checkClass: 'checked' },
+        { id: 'star5', optionClass: 'star', checkClass: 'checked' }
+    ];
+    var radio = new Radio({ items: stars, id: 'stars'}, function () {
+        if (radio.HTML.parentNode) {
+            radio.HTML.parentNode.classList.remove('submit-lock');
+        }
+    });
+
+    App.dialog({
+        title        : '#poop',
+        rawHTML      : radio.HTML,
+        theme        : 'submit-lock',
+        cancelButton : 'Cancel',
+        okButton     : 'Rate'
+        }, function(choice) {
+            if(choice && radio.selected) {
+                console.log(radio.selected.id);
+                console.log('do your stuff');
+        } 
+    });
+  });
 });
+

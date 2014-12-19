@@ -12,7 +12,7 @@
 	<!-- Styles -->
 	<link rel="stylesheet" href="//cdn.kik.com/app/2.0.1/app.min.css">
 	<link rel="stylesheet" href="/css/points-dialog.css">
-
+	<link rel="stylesheet" href="/css/new.css">
 	<link rel="stylesheet" href="/css/home.css">
 	<link rel="stylesheet" href="/css/profile.css">
 	<link rel="stylesheet" href="/css/search_group.css">
@@ -44,9 +44,11 @@
 			<div class="app-title">Your Profile</div>
 		</div>
 		<div class="app-content">
-            <div class="groupcontainer"></div>
+            <div class="groupcontainer">
+            </div>
 		</div>
 	</div>
+                                        
 
 	<div class="app-page searchgroup-page" data-page="search_group">
 		<div class="app-topbar">
@@ -85,7 +87,13 @@
             <div class="groupcontainer">
                 <div class="topbar">New</div>
                     <div class="populate_group">
-                        Click on me
+
+                        <div class="info">
+                            <h3>#poop</h3>
+                            <i class="fa fa-star fa-lg"></i><i class="fa fa-star fa-lg"></i><i class="fa fa-star fa-lg"></i><i class="fa fa-star fa-lg"></i><i class="fa fa-star fa-lg"></i>
+                            <p>This is my poopy description.</p>
+                            <div class="rater">Rate the group <i class="fa fa-thumbs-up"></i></div>
+                        </div>
                     </div>
             </div>
         </div>
@@ -100,8 +108,9 @@
 
         <div class="app-content">
         <!-- Need to populate this container with the backend -->
-        <div class="topbar">Celebrity</div>
-
+            <div class="groupcontainer">
+                <div class="topbar">Celebrity</div>
+            </div>
         </div>
     </div>
 
@@ -291,7 +300,7 @@
     <script src="/controller/celebrity.js"></script>
     <script src="/main.js"></script>
     <script src="/controller/celebrity.js"></script>
-
+    <script src="/controller/radio.js"></script>
 
 </body>
 </html>

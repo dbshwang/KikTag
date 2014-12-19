@@ -21,7 +21,7 @@ App.controller('kik_group', function (page) {
                 if (str == 'Error') {
                   App.dialog({
                     title: 'Group Already Exists',
-                    cancelButton: 'OK'
+                    myButton: 'OK'
                   });
                 }
                 else {
@@ -34,7 +34,7 @@ App.controller('kik_group', function (page) {
                       App.back();
                           App.dialog({
                           title: 'Group Sucessfully Created',
-                          cancelButton: 'OK'
+                          myButton: 'OK'
                       });
                   } else {
                       App.load('search_group');
@@ -42,7 +42,7 @@ App.controller('kik_group', function (page) {
                       // Creation dialog from Submit a Group page
                       App.dialog({
                           title: 'Group Sucessfully Created',
-                          cancelButton: 'OK'
+                          myButton: 'OK'
                       });
                   }
               }

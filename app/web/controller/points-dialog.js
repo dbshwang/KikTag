@@ -165,7 +165,7 @@ App._Dialog = function (window, document, Clickable, App, Utils, OldDialog, kik)
 			var button = document.createElement('div');
 			button.className = 'button close first';
 			if ( !options.okButton )
-            button.className += ' last';
+            button.className += ' first';
 			button.setAttribute('data-button', 'close');
 			button.textContent = options.cancelButton;
 			Clickable(button);
