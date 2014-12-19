@@ -30,7 +30,7 @@ App.controller('new', function (page) {
                 theme        : 'submit-lock',
                 cancelButton : 'Cancel',
                 okButton     : 'Rate'
-              }
+              };
 
 
               App.dialog(opts, function(choice) {
@@ -52,16 +52,14 @@ App.controller('new', function (page) {
           var i =0;
           for(i = 0; i< hashtags.length; i++){
             rating = Math.round(hashtags[i]['rating']);
-            console.log(rating);
             el = $('<div class="populate_group"><div class="info"></div></div>');
-            el.find('.info').append('<h3>' + hashtags[i]['hashtag'] + '</h3>');
+            el.find('.info').append('<h3>' + '<a href="kik-share://kik.com/g/' + hashtags[i]['hashtag'] + '">' + hashtags[i]['hashtag'] + '</a></h3>');
             el.find('.info').append('<p>' + hashtags[i]['desc'] + '</p>');
             el.find('.info').append('<div class="stars"></div>');
             el.find('.info').append('<div class="rater">Rate the group <i class="fa fa-thumbs-up"></i></div>');
             el.attr('rating', rating);
             el.find('.rater').on('click', function(){
-              console.log(el);
-              openDialog($(el));
+              openDialog($(this).parent().parent());
             });
             super_el.append(el);
           }

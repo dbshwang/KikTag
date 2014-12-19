@@ -20,6 +20,7 @@ function hashtag(params, callback){
 function up(params, callback){
   var submittedRating      = params['rating'];
   var groupName            = params['groupName'];
+  console.log('reached up');
   connectToDB(function (db){
     collection = db.collection('submitted_hashtags');
     collection.find({hashtag : groupName}).toArray(function(err, docs){
@@ -59,7 +60,7 @@ function create(params, callback) {
 }
 
 function view(params, callback){
-    console.log('reached view'); 
+    console.log('reached view');
   connectToDB( function(db) {
     collection = db.collection('submitted_hashtags');
     searchParams = defineSearchParams(params);
