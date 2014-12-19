@@ -18,7 +18,8 @@ img {
 }
 
 .radio {
-  margin-left: 8px;
+    width: 100%;
+    text-align: center;
 }
 
 .star.selected {
@@ -38,25 +39,13 @@ img {
 .star {
   display: inline-block;
   padding: 6px 6px 16px;
-  height: 36px;
-  width: 36px;
+  height: 20px;
+  width: 20px;
   -webkit-background-size: 36px 36px;
-  background-size: 36px 36px;
+  background-size: 20px 20px;
   background-repeat: no-repeat;
   background-image: url(/img/star.png?inline=1);
   background-size: 100%;
   background-repeat: no-repeat;
   margin: 0 auto;
-}
-
-label > input{ /* HIDE RADIO */
-  visibility: hidden; /* Makes input not-clickable */
-  position: absolute; /* Remove input from document flow */
-}
-label > input + img{ /* IMAGE STYLES */
-  cursor:pointer;
-  border:2px solid transparent;
-}
-label > input:checked + img{ /* (RADIO CHECKED) IMAGE STYLES */
-  border:2px solid #f00;
 }
