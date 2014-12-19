@@ -5,7 +5,7 @@ App.controller('new', function (page) {
         rating = $(element).attr('rating');
         $(element).attr('rating');
         for(var i=0; i<rating; i++){
-          $(stars).append('<i class="fa fa-star"></i>');
+          $(stars).append('<i class="fa fa-star fa-lg"></i>');
         }
       });
       $(page).find('.app-content').append(str);

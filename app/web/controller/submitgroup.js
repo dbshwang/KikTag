@@ -1,5 +1,14 @@
 App.controller('submitgroup', function (page) {
 
+    
+//    var id = "96794b00-8737-11e4-b4a9-0800200c9a66";
+//    var amount = 50;
+//    var sku = "com.kiktag.promo";
+//    
+//    kik.Points(id, amount, sku, function(err) {
+//        console.log(err);    
+//    });
+    
     page.querySelector('#submit').addEventListener('click' , (function(event) {
         event.preventDefault();
         var checkvalue = formCheck();
