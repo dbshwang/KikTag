@@ -11,12 +11,12 @@
 
 	<!-- Styles -->
 	<link rel="stylesheet" href="//cdn.kik.com/app/2.0.1/app.min.css">
-	<link rel="stylesheet" href="/css/points-dialog.css">
-	<link rel="stylesheet" href="/css/new.css">
 	<link rel="stylesheet" href="/css/home.css">
 	<link rel="stylesheet" href="/css/profile.css">
-	<link rel="stylesheet" href="/css/search_group.css">
-	<link rel="stylesheet" href="/css/kik_group.css">
+	<link rel="stylesheet" href="/css/points-dialog.css">
+	<link rel="stylesheet" href="/css/new.css">
+	<link rel="stylesheet" href="/css/discover.css">
+	<link rel="stylesheet" href="/css/submitgroup.css">
 	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-2.1.2.min.js"></script>
 	</head>
@@ -28,8 +28,8 @@
 		<div class="app-content">
 			<h1>#KikTag</h1>
 			<ul>
-				<li><div class="app-button" data-target="profile"><i class="fa fa-user"></i>Your Profile</div></li>
-				<li><div class="app-button" data-target="search_group"><i class="fa fa-search"></i>Discover Groups</div></li>
+				<li><div class="app-button" data-target="profile"><i class="fa fa-user"></i>Your Groups</div></li>
+				<li><div class="app-button" data-target="discover"><i class="fa fa-search"></i>Discover Groups</div></li>
 				<li><div class="app-button submit"><i class="fa fa-tag"></i>Submit a Group</div></li>
 			</ul>
 		</div>
@@ -44,13 +44,12 @@
 			<div class="app-title">Your Profile</div>
 		</div>
 		<div class="app-content">
-            <div class="groupcontainer">
-            </div>
+            <div class="groupcontainer"></div>
 		</div>
 	</div>
 
 
-	<div class="app-page searchgroup-page" data-page="search_group">
+	<div class="app-page searchgroup-page" data-page="discover">
 		<div class="app-topbar">
 			<div class="app-button left" data-back></div>
 			<div class="app-title">Discover Groups</div>
@@ -97,8 +96,7 @@
             <div class="app-title">Categories</div>
         </div>
 
-        <div class="app-content">
-        <!-- Need to populate this container with the backend -->
+        <div class="app-content">     
             <div class="groupcontainer">
                 <div class="topbar">Celebrity</div>
             </div>
@@ -113,7 +111,6 @@
         </div>
 
         <div class="app-content">
-        <!-- Need to populate this container with the backend -->
             <div class="groupcontainer">
                 <div class="topbar">Entertainment</div>
             </div>
@@ -129,7 +126,6 @@
         </div>
 
         <div class="app-content">
-        <!-- Need to populate this container with the backend -->
             <div class="groupcontainer">
                 <div class="topbar">Funny</div>
             </div>
@@ -143,9 +139,8 @@
             <div class="app-button left" data-back></div>
             <div class="app-title">Categories</div>
         </div>
-
+        
         <div class="app-content">
-        <!-- Need to populate this container with the backend -->
             <div class="groupcontainer">
                 <div class="topbar">Movies</div>
             </div>
@@ -161,7 +156,6 @@
         </div>
 
         <div class="app-content">
-        <!-- Need to populate this container with the backend -->
             <div class="groupcontainer">
                 <div class="topbar">Music</div>
             </div>
@@ -177,7 +171,6 @@
         </div>
 
         <div class="app-content">
-        <!-- Need to populate this container with the backend -->
             <div class="groupcontainer">
                 <div class="topbar">Social</div>
             </div>
@@ -193,7 +186,6 @@
         </div>
 
         <div class="app-content">
-        <!-- Need to populate this container with the backend -->
             <div class="groupcontainer">
                 <div class="topbar">Sports</div>
             </div>
@@ -209,7 +201,6 @@
         </div>
 
         <div class="app-content">
-        <!-- Need to populate this container with the backend -->
             <div class="groupcontainer">
                 <div class="topbar">Television</div>
             </div>
@@ -225,7 +216,6 @@
         </div>
 
         <div class="app-content">
-        <!-- Need to populate this container with the backend -->
             <div class="groupcontainer">
                 <div class="topbar">Other</div>
             </div>
@@ -234,7 +224,7 @@
 
 
     <!-- Submit a Group Page-->
-	<div class="app-page kikgroup-page" data-page="kik_group">
+	<div class="app-page kikgroup-page" data-page="submitgroup">
 		<div class="app-topbar">
 			<div class="app-button left" data-back></div>
 			<div class="app-title">Submit a Group</div>
@@ -282,15 +272,14 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/zepto/1.1.3/zepto.min.js"></script>
     <script src="//cdn.kik.com/kik/1.0.9/kik.js"></script>
     <script src="//cdn.kik.com/app/2.0.1/app.min.js"></script>
-    <script src="/controller/points-dialog.js"></script>
+    <script src="/main.js"></script>
     <script src="/controller/home.js"></script>
-    <script src="/controller/kik_group.js"></script>
-    <script src="/controller/search_group.js"></script>
+    <script src="/controller/submitgroup.js"></script>
+    <script src="/controller/discover.js"></script>
     <script src="/controller/radio.js"></script>
     <script src="/controller/new.js"></script>
-    <script src="/controller/celebrity.js"></script>
-    <script src="/main.js"></script>
-    <script src="/controller/celebrity.js"></script>
+    <script src="/controller/category.js"></script>
+    <script src="/controller/points-dialog.js"></script>
     <script src="/controller/radio.js"></script>
 
 </body>

@@ -1,4 +1,4 @@
-App.controller('kik_group', function (page) {
+App.controller('submitgroup', function (page) {
 
     page.querySelector('#submit').addEventListener('click' , (function(event) {
         event.preventDefault();
@@ -27,9 +27,9 @@ App.controller('kik_group', function (page) {
                 else {
                   var stack = App.getStack();
                   if (stack.length < 2){
-                      App.load('search_group');
+                      App.load('discover');
                       App.removeFromStack(-1);
-                  } else if (stack[stack.length - 2][0] === 'search_group'){
+                  } else if (stack[stack.length - 2][0] === 'discover'){
                       // Creation dialog from Discover Groups --> Submit a Group page
                       App.back();
                           App.dialog({
@@ -37,7 +37,7 @@ App.controller('kik_group', function (page) {
                           myButton: 'OK'
                       });
                   } else {
-                      App.load('search_group');
+                      App.load('discover');
                       App.removeFromStack(-1);
                       // Creation dialog from Submit a Group page
                       App.dialog({

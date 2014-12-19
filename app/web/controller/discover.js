@@ -1,6 +1,6 @@
-App.controller('search_group', function (page) {
+App.controller('discover', function (page) {
     page.querySelector('.submit').addEventListener('click', function(){
-        App.load('kik_group', 'slideon-down');
+        App.load('submitgroup', 'slideon-down');
     });
 
     function callback(str){
