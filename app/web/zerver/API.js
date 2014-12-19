@@ -1,10 +1,39 @@
-exports.create = create;
-function create(params, callback) {
-  var doc = init_doc(params.data);
+// HASHTAGS
+exports.hashtag = hashtag;
+hashtag.type = ['GET', 'POST', 'DELETE'];
 
+function hashtag(params, callback){
+  if(this.method == 'POST'){
+    create(this.jsonBody, callback);
+  }
+  if(this.method == 'GET'){
+    view(params, callback);
+  }
+  if(this.method == 'DELETE'){
+    dele(params, callback);
+  }
+}
+
+function dele(params, callback){
+  var groupName  = params.groupName;
+  var removeData = {hashtag : groupName};
   connectToDB(function(db){
     collection = db.collection('submitted_hashtags');
+    collection.remove(removeData, function(err, objects){
+      if(err){
+        throw err
+        callback('Something went wrong');
+      }
+        callback('Success');
+    });
 
+  });
+}
+
+function create(params, callback) {
+  var doc = init_doc(params.data);
+  connectToDB(function(db){
+    collection = db.collection('submitted_hashtags');
    collection.insert(doc, function(err, objects) {
       if (err) callback('Error');
       else callback('ok');
@@ -14,13 +43,13 @@ function create(params, callback) {
   });
 }
 
-user.type = 'GET';
-exports.user = user;
-function user(params, callback){
-  connectToDB(function(db){
+function view(params, callback){
+  connectToDB( function(db) {
     collection = db.collection('submitted_hashtags');
-    userName   = params['user'];
-    collection.find({user : userName}).sort({date: -1}).toArray(function(err, docs){
+    searchParams = defineSearchParams(params);
+    collection.find(searchParams).sort({date: -1}).toArray(function(err, docs){
+      if (err)
+        callback('Error');
       docs.forEach(function(doc){
         delete doc['_id'];
       });
@@ -30,16 +59,15 @@ function user(params, callback){
   });
 }
 
-view.type = 'GET';
-exports.view = view;
-function view(params, callback){
-  connectToDB( function(db) {
+// END OF HASHTAGS
+
+user.type = 'GET';
+exports.user = user;
+function user(params, callback){
+  connectToDB(function(db){
     collection = db.collection('submitted_hashtags');
-    searchParams = defineSearchParams(params);
-    collection.find(searchParams).sort({date: -1}).toArray(function(err, docs){
-      docs.forEach(function(doc){
-        delete doc['_id'];
-      });
+    userName   = params['user'];
+    collection.find({user : userName}).sort({date: -1}).toArray(function(err, docs){
       callback(docs);
       db.close();
     });
