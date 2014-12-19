@@ -1,0 +1,62 @@
+.dialogcontainer {
+    text-align: center;
+}
+
+.app-dialog .rating {
+    width: 50%;
+    padding: 8px;
+}
+
+.app-dialog .text {
+    padding: 10px 0 5px 0;
+    margin: 0px;
+}
+
+img {
+    width: 20px;
+    height: 20px;
+}
+
+.radio {
+  margin-left: 8px;
+}
+
+.star.selected {
+   background-image: url(/img/starfill.png?inline=1);
+}
+
+.new .button .close .first{
+  color: #000;
+  background-color: #E3E4E7;
+}
+
+.new .button.ok.last{
+  color: #fff;
+  background-color: #1BBB8F;
+}
+
+.star {
+  display: inline-block;
+  padding: 6px 6px 16px;
+  height: 36px;
+  width: 36px;
+  -webkit-background-size: 36px 36px;
+  background-size: 36px 36px;
+  background-repeat: no-repeat;
+  background-image: url(/img/star.png?inline=1);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  margin: 0 auto;
+}
+
+label > input{ /* HIDE RADIO */
+  visibility: hidden; /* Makes input not-clickable */
+  position: absolute; /* Remove input from document flow */
+}
+label > input + img{ /* IMAGE STYLES */
+  cursor:pointer;
+  border:2px solid transparent;
+}
+label > input:checked + img{ /* (RADIO CHECKED) IMAGE STYLES */
+  border:2px solid #f00;
+}
