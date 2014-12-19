@@ -73,6 +73,7 @@
 }
 
 .app-dialog .button.ok {
+    width: 50%;
 	color: #000;
 	background-color: #E3E4E7;
 }

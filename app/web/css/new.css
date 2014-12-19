@@ -2,11 +2,6 @@
     text-align: center;
 }
 
-.app-dialog .rating {
-    width: 50%;
-    padding: 8px;
-}
-
 .app-dialog .text {
     padding: 10px 0 5px 0;
     margin: 0px;
@@ -18,8 +13,8 @@ img {
 }
 
 .radio {
-    width: 100%;
     text-align: center;
+    height: 50px;
 }
 
 .star.selected {
@@ -37,15 +32,26 @@ img {
 }
 
 .star {
-  display: inline-block;
-  padding: 6px 6px 16px;
-  height: 20px;
-  width: 20px;
-  -webkit-background-size: 36px 36px;
-  background-size: 20px 20px;
-  background-repeat: no-repeat;
-  background-image: url(/img/star.png?inline=1);
-  background-size: 100%;
-  background-repeat: no-repeat;
-  margin: 0 auto;
+    display: inline-block;
+    padding: 6px 6px 16px;
+    height: 20px;
+    width: 20px;
+    -webkit-background-size: 36px 36px;
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    background-image: url(/img/star.png?inline=1);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    margin: 0 auto;
+}
+
+.fa.fa-star {
+    padding-top: 10px;
+}
+
+.rater {
+    letter-spacing: -2px;
+    margin-bottom: 10px;
+    font-size: 15px;
+    font-weight: bolder;
 }
