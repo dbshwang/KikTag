@@ -6,7 +6,7 @@ App.controller('celebrity', function (page) {
   }
   $(page).on('appReady', function(){
     category = ($(page).data('page'));
-    zerver.get('API/view', {category: category} , function(hashtags){
+    zerver.get('API/hashtag', {category: category} , function(hashtags){
       super_el = $('<div class="groupcontainer"></div>');
       for(var i = 0; i< hashtags.length; i++){
         el = $('<div class="populate_group"><div class="info"></div></div>');
@@ -27,7 +27,7 @@ App.controller('entertainment', function (page) {
   }
   $(page).on('appReady', function(){
     category = ($(page).data('page'));
-    zerver.get('API/view', {category: category} , function(hashtags){
+    zerver.get('API/hashtag', {category: category} , function(hashtags){
       super_el = $('<div class="groupcontainer"></div>');
       for(var i = 0; i< hashtags.length; i++){
         el = $('<div class="populate_group"><div class="info"></div></div>');
@@ -48,7 +48,7 @@ App.controller('funny', function (page) {
   }
   $(page).on('appReady', function(){
     category = ($(page).data('page'));
-    zerver.get('API/view', {category: category} , function(hashtags){
+    zerver.get('API/hashtag', {category: category} , function(hashtags){
       super_el = $('<div class="groupcontainer"></div>');
       for(var i = 0; i< hashtags.length; i++){
         el = $('<div class="populate_group"><div class="info"></div></div>');
@@ -69,7 +69,7 @@ App.controller('movies', function (page) {
   }
   $(page).on('appReady', function(){
     category = ($(page).data('page'));
-    zerver.get('API/view', {category: category} , function(hashtags){
+    zerver.get('API/hashtag', {category: category} , function(hashtags){
       super_el = $('<div class="groupcontainer"></div>');
       for(var i = 0; i< hashtags.length; i++){
         el = $('<div class="populate_group"><div class="info"></div></div>');
@@ -90,7 +90,7 @@ App.controller('music', function (page) {
   }
   $(page).on('appReady', function(){
     category = ($(page).data('page'));
-    zerver.get('API/view', {category: category} , function(hashtags){
+    zerver.get('API/hashtag', {category: category} , function(hashtags){
       super_el = $('<div class="groupcontainer"></div>');
       for(var i = 0; i< hashtags.length; i++){
         el = $('<div class="populate_group"><div class="info"></div></div>');
@@ -111,7 +111,7 @@ App.controller('social', function (page) {
   }
   $(page).on('appReady', function(){
     category = ($(page).data('page'));
-    zerver.get('API/view', {category: category} , function(hashtags){
+    zerver.get('API/hashtag', {category: category} , function(hashtags){
       super_el = $('<div class="groupcontainer"></div>');
       for(var i = 0; i< hashtags.length; i++){
         el = $('<div class="populate_group"><div class="info"></div></div>');
@@ -132,7 +132,7 @@ App.controller('sports', function (page) {
   }
   $(page).on('appReady', function(){
     category = ($(page).data('page'));
-    zerver.get('API/view', {category: category} , function(hashtags){
+    zerver.get('API/hashtag', {category: category} , function(hashtags){
       super_el = $('<div class="groupcontainer"></div>');
       for(var i = 0; i< hashtags.length; i++){
         el = $('<div class="populate_group"><div class="info"></div></div>');
@@ -153,7 +153,7 @@ App.controller('television', function (page) {
   }
   $(page).on('appReady', function(){
     category = ($(page).data('page'));
-    zerver.get('API/view', {category: category} , function(hashtags){
+    zerver.get('API/hashtag', {category: category} , function(hashtags){
       super_el = $('<div class="groupcontainer"></div>');
       for(var i = 0; i< hashtags.length; i++){
         el = $('<div class="populate_group"><div class="info"></div></div>');
@@ -173,7 +173,7 @@ App.controller('other', function (page) {
   }
   $(page).on('appReady', function(){
     category = ($(page).data('page'));
-    zerver.get('API/view', {category: category} , function(hashtags){
+    zerver.get('API/hashtag', {category: category} , function(hashtags){
       super_el = $('<div class="groupcontainer"></div>');
       for(var i = 0; i< hashtags.length; i++){
         el = $('<div class="populate_group"><div class="info"></div></div>');
@@ -200,8 +200,26 @@ App.controller('profile', function (page) {
     }, true);
   }
 
+  function openDialog(el){
+    opts = {
+      hashtag: $(el).find('h3').text(),
+      deleteButton : 'Delete',
+      viewButton   : 'View'
+    };
+
+    App.dialog(opts, function(choice, cancelButton){
+      if(choice == 'delete'){
+        zerver.del('API/hashtag', {groupName: opts.hashtag}, function(str){
+          App.load('profile', function(event){
+            App.removeFromStack(-1);
+          });
+        });
+      }
+    });
+  }
+
+
   $(page).on('appReady', function(){
-    console.log(kikUser);
     zerver.get('API/user', {user: kikUser} , function(hashtags){
       super_el = $('<div class="groupcontainer"></div>');
       for(var i = 0; i< hashtags.length; i++){
@@ -209,6 +227,9 @@ App.controller('profile', function (page) {
         el.find('.info').append('<h3>' + '<a href="kik-share://kik.com/g/' + hashtags[i]['hashtag'] + '">' + hashtags[i]['hashtag'] + '</a></h3>');
         el.find('.info').append('<p>' + hashtags[i]['desc'] + '</p>');
         super_el.append(el);
+        el.on('click', function(){
+          openDialog($(this));
+        });
       }
       callback(super_el);
     });
