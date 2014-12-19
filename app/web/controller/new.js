@@ -1,5 +1,13 @@
 App.controller('new', function (page) {
     function callback(str){
+      $(str).find('.populate_group').each(function(index, element){
+        stars   =  $(element).find('.info').find('.stars');
+        rating = $(element).attr('rating');
+        $(element).attr('rating');
+        for(var i=0; i<rating; i++){
+          $(stars).append('<i class="fa fa-star"></i>');
+        }
+      });
       $(page).find('.app-content').append(str);
     }
 
@@ -28,8 +36,9 @@ App.controller('new', function (page) {
               App.dialog(opts, function(choice) {
                 if(choice && radio.selected) {
                   rating = radio.selected.id.slice(-1);
-                    zerver.put('API/hashtag', {groupName: opts['title'], rating : rating}, function(str){
-
+                    zerver.put('API/hashtag', {groupName: opts['title'], rating : parseInt(rating)}, function(str){
+                      App.load('new');
+                      App.removeFromStack(-1);
                     });
                 }
               });
@@ -42,11 +51,14 @@ App.controller('new', function (page) {
           super_el = $('<div class="groupcontainer"></div>');
           var i =0;
           for(i = 0; i< hashtags.length; i++){
+            rating = Math.round(hashtags[i]['rating']);
+            console.log(rating);
             el = $('<div class="populate_group"><div class="info"></div></div>');
             el.find('.info').append('<h3>' + hashtags[i]['hashtag'] + '</h3>');
             el.find('.info').append('<p>' + hashtags[i]['desc'] + '</p>');
-            el.find('.info').append('<div class="rater">Rate the group</div>')
-
+            el.find('.info').append('<div class="stars"></div>');
+            el.find('.info').append('<div class="rater">Rate the group <i class="fa fa-thumbs-up"></i></div>');
+            el.attr('rating', rating);
             el.on('click', function(){
               openDialog($(this));
             });

@@ -23,23 +23,15 @@ function up(params, callback){
   connectToDB(function (db){
     collection = db.collection('submitted_hashtags');
     collection.find({hashtag : groupName}).toArray(function(err, docs){
-      nRating = 1;
 
-      if(docs['nRating'])
-        nRating = doc['nRating'];
-        else
-        {
-          docs['nRating'] = 1;
-          nRating        = 1 ;
-        }
-        currentRating = docs[0]['rating'];
-        newRating     = (currentRating + submittedRating)/nRating;
-
+        wholeRating = docs[0]['wholeRating'] + submittedRating;
+        nRating = 1 + docs[0]['nRating'];
+        newRating    = wholeRating/nRating;
+        console.log(wholeRating);
         connectToDB(function(db){
-          console.log(newRating);
-          console.log(docs[0]);
+
           collection = db.collection('submitted_hashtags');
-          collection.update({hashtag : docs[0]['hashtag']}, {$set : {rating : newRating} }, function(err) {
+          collection.update({hashtag : docs[0]['hashtag']}, {$set : {rating : newRating, nRating: nRating, wholeRating: wholeRating} }, function(err) {
 
             if (err)
               callback('Error');
@@ -73,6 +65,7 @@ function view(params, callback){
     collection.find(searchParams).sort({date: -1}).toArray(function(err, docs){
       if (err)
         callback('Error');
+      console.log(docs);
       docs.forEach(function(doc){
         delete doc['_id'];
       });
@@ -143,5 +136,6 @@ function init_doc(data){
   doc['date']     = (new Date().getTime() / 1000);
   doc['desc']     = data['desc'];
   doc['nRating']  = 0 ;
+  doc['wholeRating'] = 0;
   return doc;
 }
