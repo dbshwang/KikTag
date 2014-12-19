@@ -13,22 +13,43 @@ function hashtag(params, callback){
     dele(params, callback);
   }
   if(this.method == 'PUT'){
-    update(this.jsonBody, callback);
+    up(this.jsonBody, callback);
   }
 }
 
-function update(params, callback){
-  var newRating      = params['rating'];
-  var groupName   = params['groupName'];
-  var updateQuery = {hashtag : groupName};
-  connectToDB(function(db){
+function up(params, callback){
+  var submittedRating      = params['rating'];
+  var groupName            = params['groupName'];
+  connectToDB(function (db){
     collection = db.collection('submitted_hashtags');
-    collection.update(updateQuery, {$set: {rating: newRating}}, {w:1}, function(err){
-      if(err) callback('Error');
-      else{
-        callback('Success');
-      }
-    });
+    collection.find({hashtag : groupName}).toArray(function(err, docs){
+      nRating = 1;
+
+      if(docs['nRating'])
+        nRating = doc['nRating'];
+        else
+        {
+          docs['nRating'] = 1;
+          nRating        = 1 ;
+        }
+        currentRating = docs[0]['rating'];
+        newRating     = (currentRating + submittedRating)/nRating;
+
+        connectToDB(function(db){
+          console.log(newRating);
+          console.log(docs[0]);
+          collection = db.collection('submitted_hashtags');
+          collection.update({hashtag : docs[0]['hashtag']}, {$set : {rating : newRating} }, function(err) {
+
+            if (err)
+              callback('Error');
+              else
+                callback('ok');
+                console.log('UPDATED');
+                db.close();
+              });
+            });
+      });
   });
 }
 
@@ -36,7 +57,7 @@ function create(params, callback) {
   var doc = init_doc(params.data);
   connectToDB(function(db){
     collection = db.collection('submitted_hashtags');
-   collection.insert(doc, function(err, objects) {
+    collection.insert(doc, function(err, objects) {
       if (err) callback('Error');
       else callback('ok');
       db.close();
@@ -121,5 +142,6 @@ function init_doc(data){
   doc['rating']   = 0;
   doc['date']     = (new Date().getTime() / 1000);
   doc['desc']     = data['desc'];
+  doc['nRating']  = 0 ;
   return doc;
 }
