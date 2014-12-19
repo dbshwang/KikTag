@@ -17,6 +17,39 @@ App.controller('new', function (page) {
           }
         });
     }
+
+
+
+  page.querySelector(".populate_group").addEventListener('click' , function(event) {
+    var stars = [
+        { id: 'star1', optionClass: 'star', checkClass: 'checked' },
+        { id: 'star2', optionClass: 'star', checkClass: 'checked' },
+        { id: 'star3', optionClass: 'star', checkClass: 'checked' },
+        { id: 'star4', optionClass: 'star', checkClass: 'checked' },
+        { id: 'star5', optionClass: 'star', checkClass: 'checked' }
+    ];
+    var radio = new Radio({ items: stars, id: 'stars'}, function () {
+        if (radio.HTML.parentNode) {
+            radio.HTML.parentNode.classList.remove('submit-lock');
+        }
+    });
+
+    App.dialog({
+        title        : 'Rate this group',
+        rawHTML      : radio.HTML,
+        theme        : 'submit-lock',
+        okButton     : 'Rate',
+        cancelButton : 'Cancel'
+        }, function(status) {
+        if (status && radio.selected) {
+            console.log(radio.selected.id);
+            console.log('do your stuff');
+        } else {
+
+        }
+    });
+  });
+
     $(page).on('appReady', function(){
         category = ($(page).data('page'));
         zerver.get('API/view', {category: category} , function(hashtags){
@@ -36,52 +69,37 @@ App.controller('new', function (page) {
     });
 });
 
-App.controller('new', function (page) {
-  function callback(str){
-    console.log(str);
-    $(page).find('.app-content').append(str);
-  }
+// App.controller('new', function (page) {
+//   function callback(str){
+//     console.log(str);
+//     $(page).find('.app-content').append(str);
+//   }
 
-  $(page).on('appReady', function(){
-    category = ($(page).data('page'));
-    zerver.get('API/view', {category: category} , function(hashtags){
-      super_el = $('<div class="groupcontainer"></div>');
-      for(var i = 0; i< hashtags.length; i++){
-        el = $('<div class="populate_group"><div class="info"></div></div>');
-        el.find('.info').append('<h3>' + '<a href="kik-share://kik.com/g/' + hashtags[i]['hashtag'] + '">' + hashtags[i]['hashtag'] + '</a></h3>');
-        el.find('.info').append('<p>' + hashtags[i]['desc'] + '</p>');
-        super_el.append(el);
-      }
-      callback(super_el);
-    });
+//   $(page).on('appReady', function(){
+//     category = ($(page).data('page'));
+//     zerver.get('API/view', {category: category} , function(hashtags){
+//       super_el = $('<div class="groupcontainer"></div>');
+//       for(var i = 0; i< hashtags.length; i++){
+//         el = $('<div class="populate_group"><div class="info"></div></div>');
+//         el.find('.info').append('<h3>' + '<a href="kik-share://kik.com/g/' + hashtags[i]['hashtag'] + '">' + hashtags[i]['hashtag'] + '</a></h3>');
+//         el.find('.info').append('<p>' + hashtags[i]['desc'] + '</p>');
+//         super_el.append(el);
+//       }
+//       callback(super_el);
+//     });
 
-  });
+//   });
 
-  //  TAPPING ON A GROUP IN DISCOVER GROUP PAGE --> GROUPS NAMES NEED TO AUTOMATICALLY BE INPUTTED
-  node = document.createElement("div");
-  node.className = "rating";
-  $(node).append('<label> <input type="radio" name="star" value="1"/> <img src="img/star.png"> <input type="radio" name="star" value="2"/> <img src="img/star.png"> <input type="radio" name="star" value="3"/> <img src="img/star.png"> <input type="radio" name="star" value="4"/> <img src="img/star.png"> <input type="radio" name="star" value="5"/> <img src="img/star.png"> </label>');
+//   //  TAPPING ON A GROUP IN DISCOVER GROUP PAGE --> GROUPS NAMES NEED TO AUTOMATICALLY BE INPUTTED
 
-  var logID = 'log',
-  log = $('<div id="'+logID+'"></div>');
-  $('body').append(log);
-  $('[type*="radio"]').change(function () {
-    var me = $(this);
-    log.html(me.attr('value'));
-  });
+//   var logID = 'log',
+//   log = $('<div id="'+logID+'"></div>');
+//   $('body').append(log);
+//   $('[type*="radio"]').change(function () {
+//     var me = $(this);
+//     log.html(me.attr('value'));
+//   });
 
-  page.querySelector(".populate_group").addEventListener('click' , (function(event) {
-    App.dialog({title: "#Poop",
-    text: "Rate the Group",
-    rawHTML: node,
-    viewButton: "View Group",
-    okButton: "Cancel",
-    dark: false
-  }, function(choice) {
-    if(choice === "view") {
-      kik.open('kik-share://kik.com/g/#poop');
-    }
-  }
-)
-}));
-});
+// )
+// }));
+// });

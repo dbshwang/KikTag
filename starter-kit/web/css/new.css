@@ -17,6 +17,10 @@ img {
     height: 20px;
 }
 
+.star {
+
+}
+
 label > input{ /* HIDE RADIO */
   visibility: hidden; /* Makes input not-clickable */
   position: absolute; /* Remove input from document flow */
