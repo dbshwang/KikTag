@@ -29,7 +29,7 @@ var Radio = function (document) {
 			}
 
 			Clickable(option);
-			option.addEventListener('click', select.bind(this, option, options.items[i], callback), false);
+			option.addEventListener('click', select.bind(this, option, options.items, i, callback), false);
 			this.HTML.appendChild(option);
 		}
 	};
@@ -40,20 +40,23 @@ var Radio = function (document) {
 		selectedOption: {}
 	};
 
-	function select(option, item, callback) {
+	function select(option, items, index, callback) {
 		if (option.key === this.selectedOption.key) {
 			return;
 		}
 
-		option.classList.add('selected');
-		if (this.selectedOption.key != null) {
-			this.selectedOption.classList.remove('selected');
+		for (var i = 0; i <= 4; ++i){
+			document.querySelector('#star' + (i + 1)).classList.remove('selected');
+		}
+
+		for (var i = 0; i <= index; ++i){
+			document.querySelector('#star' + (i + 1)).classList.add('selected');
 		}
 
 		this.selectedOption = option;
-		this.selected = item;
+		this.selected = items[index];
 
-		callback && callback(item);
+		callback && callback(items[index]);
 	}
 
 	return Radio;
