@@ -17,7 +17,7 @@ App.controller('kik_group', function (page) {
                 }, true);
             }
             formData = { data: { desc: form_desc, hashtag: form_hashtag, category: form_category, user: user_ }};
-            API.create(formData, function(str){
+            zerver.post('API/hashtag', formData , function(str){
                 if (str == 'Error') {
                   App.dialog({
                     title: 'Group Already Exists',
