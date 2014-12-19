@@ -1,6 +1,6 @@
 // HASHTAGS
 exports.hashtag = hashtag;
-hashtag.type = ['GET', 'POST', 'DELETE'];
+hashtag.type = ['GET', 'POST', 'DELETE', 'PUT'];
 
 function hashtag(params, callback){
   if(this.method == 'POST'){
@@ -12,21 +12,23 @@ function hashtag(params, callback){
   if(this.method == 'DELETE'){
     dele(params, callback);
   }
+  if(this.method == 'PUT'){
+    update(this.jsonBody, callback);
+  }
 }
 
-function dele(params, callback){
-  var groupName  = params.groupName;
-  var removeData = {hashtag : groupName};
+function update(params, callback){
+  var newRating      = params['rating'];
+  var groupName   = params['groupName'];
+  var updateQuery = {hashtag : groupName};
   connectToDB(function(db){
     collection = db.collection('submitted_hashtags');
-    collection.remove(removeData, function(err, objects){
-      if(err){
-        throw err
-        callback('Something went wrong');
-      }
+    collection.update(updateQuery, {$set: {rating: newRating}}, {w:1}, function(err){
+      if(err) callback('Error');
+      else{
         callback('Success');
+      }
     });
-
   });
 }
 
@@ -56,6 +58,22 @@ function view(params, callback){
       callback(docs);
       db.close();
     });
+  });
+}
+
+function dele(params, callback){
+  var groupName  = params.groupName;
+  var removeData = {hashtag : groupName};
+  connectToDB(function(db){
+    collection = db.collection('submitted_hashtags');
+    collection.remove(removeData, function(err, objects){
+      if(err){
+        throw err
+        callback('Something went wrong');
+      }
+      callback('Success');
+    });
+
   });
 }
 
