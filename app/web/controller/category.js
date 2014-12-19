@@ -37,7 +37,7 @@ App.dialog(opts, function(choice) {
   if(choice && radio.selected) {
     rating = radio.selected.id.slice(-1);
     zerver.put('API/hashtag', {groupName: opts['title'], rating : parseInt(rating)}, function(str){
-      App.load('new');
+      App.load('celebrity');
       App.removeFromStack(-1);
     });
   }
@@ -51,12 +51,13 @@ $(page).on('appReady', function(){
     super_el = $('<div class="groupcontainer"></div>');
     var i =0;
     for(i = 0; i< hashtags.length; i++){
+      rating = Math.round(hashtags[i]['rating']);
       el = $('<div class="populate_group"><div class="info"></div></div>');
       el.find('.info').append('<h3>' + '<a href="kik-share://kik.com/g/' + hashtags[i]['hashtag'] + '">' + hashtags[i]['hashtag'] + '</a></h3>');
       el.find('.info').append('<p>' + hashtags[i]['desc'] + '</p>');
       el.find('.info').append('<div class="stars"></div>');
       el.find('.info').append('<div class="rater">Rate the group <i class="fa fa-thumbs-up"></i></div>')
-
+      el.attr('rating', rating);
       el.find('.rater').on('click', function(){
         openDialog($(this).parent().parent());
       });
@@ -108,7 +109,7 @@ App.dialog(opts, function(choice) {
   if(choice && radio.selected) {
     rating = radio.selected.id.slice(-1);
     zerver.put('API/hashtag', {groupName: opts['title'], rating : parseInt(rating)}, function(str){
-      App.load('new');
+      App.load('entertainment');
       App.removeFromStack(-1);
     });
   }
@@ -122,12 +123,13 @@ $(page).on('appReady', function(){
     super_el = $('<div class="groupcontainer"></div>');
     var i =0;
     for(i = 0; i< hashtags.length; i++){
+      rating = Math.round(hashtags[i]['rating']);
       el = $('<div class="populate_group"><div class="info"></div></div>');
       el.find('.info').append('<h3>' + '<a href="kik-share://kik.com/g/' + hashtags[i]['hashtag'] + '">' + hashtags[i]['hashtag'] + '</a></h3>');
       el.find('.info').append('<p>' + hashtags[i]['desc'] + '</p>');
       el.find('.info').append('<div class="stars"></div>');
       el.find('.info').append('<div class="rater">Rate the group <i class="fa fa-thumbs-up"></i></div>')
-
+      el.attr('rating', rating);
       el.find('.rater').on('click', function(){
         openDialog($(this).parent().parent());
       });
@@ -145,7 +147,7 @@ App.controller('funny', function (page) {
     $(str).find('.populate_group').each(function(index, element){
       stars   =  $(element).find('.info').find('.stars');
       rating = $(element).attr('rating');
-      $(element).attr('rating');
+      console.log(element);
       for(var i=0; i<rating; i++){
         $(stars).append('<i class="fa fa-star fa-lg"></i>');
       }
@@ -173,13 +175,15 @@ opts = {
   cancelButton : 'Cancel',
   okButton     : 'Rate'
 }
+console.log(opts);
+
 
 
 App.dialog(opts, function(choice) {
   if(choice && radio.selected) {
     rating = radio.selected.id.slice(-1);
     zerver.put('API/hashtag', {groupName: opts['title'], rating : parseInt(rating)}, function(str){
-      App.load('new');
+      App.load('funny');
       App.removeFromStack(-1);
     });
   }
@@ -193,12 +197,13 @@ $(page).on('appReady', function(){
     super_el = $('<div class="groupcontainer"></div>');
     var i =0;
     for(i = 0; i< hashtags.length; i++){
+      rating = Math.round(hashtags[i]['rating']);
       el = $('<div class="populate_group"><div class="info"></div></div>');
       el.find('.info').append('<h3>' + '<a href="kik-share://kik.com/g/' + hashtags[i]['hashtag'] + '">' + hashtags[i]['hashtag'] + '</a></h3>');
       el.find('.info').append('<p>' + hashtags[i]['desc'] + '</p>');
       el.find('.info').append('<div class="stars"></div>');
-      el.find('.info').append('<div class="rater">Rate the group <i class="fa fa-thumbs-up"></i></div>')
-
+      el.find('.info').append('<div class="rater">Rate the group <i class="fa fa-thumbs-up"></i></div>');
+      el.attr('rating', rating);
       el.find('.rater').on('click', function(){
         openDialog($(this).parent().parent());
       });
@@ -250,7 +255,7 @@ App.dialog(opts, function(choice) {
   if(choice && radio.selected) {
     rating = radio.selected.id.slice(-1);
     zerver.put('API/hashtag', {groupName: opts['title'], rating : parseInt(rating)}, function(str){
-      App.load('new');
+      App.load('movies');
       App.removeFromStack(-1);
     });
   }
@@ -264,12 +269,13 @@ $(page).on('appReady', function(){
     super_el = $('<div class="groupcontainer"></div>');
     var i =0;
     for(i = 0; i< hashtags.length; i++){
+      rating = Math.round(hashtags[i]['rating']);
       el = $('<div class="populate_group"><div class="info"></div></div>');
       el.find('.info').append('<h3>' + '<a href="kik-share://kik.com/g/' + hashtags[i]['hashtag'] + '">' + hashtags[i]['hashtag'] + '</a></h3>');
       el.find('.info').append('<p>' + hashtags[i]['desc'] + '</p>');
       el.find('.info').append('<div class="stars"></div>');
       el.find('.info').append('<div class="rater">Rate the group <i class="fa fa-thumbs-up"></i></div>')
-
+      el.attr('rating', rating);
       el.find('.rater').on('click', function(){
         openDialog($(this).parent().parent());
       });
@@ -321,7 +327,7 @@ App.dialog(opts, function(choice) {
   if(choice && radio.selected) {
     rating = radio.selected.id.slice(-1);
     zerver.put('API/hashtag', {groupName: opts['title'], rating : parseInt(rating)}, function(str){
-      App.load('new');
+      App.load('music');
       App.removeFromStack(-1);
     });
   }
@@ -335,12 +341,13 @@ $(page).on('appReady', function(){
     super_el = $('<div class="groupcontainer"></div>');
     var i =0;
     for(i = 0; i< hashtags.length; i++){
+      rating = Math.round(hashtags[i]['rating']);
       el = $('<div class="populate_group"><div class="info"></div></div>');
       el.find('.info').append('<h3>' + '<a href="kik-share://kik.com/g/' + hashtags[i]['hashtag'] + '">' + hashtags[i]['hashtag'] + '</a></h3>');
       el.find('.info').append('<p>' + hashtags[i]['desc'] + '</p>');
       el.find('.info').append('<div class="stars"></div>');
       el.find('.info').append('<div class="rater">Rate the group <i class="fa fa-thumbs-up"></i></div>')
-
+      el.attr('rating', rating);
       el.find('.rater').on('click', function(){
         openDialog($(this).parent().parent());
       });
@@ -392,7 +399,7 @@ App.dialog(opts, function(choice) {
   if(choice && radio.selected) {
     rating = radio.selected.id.slice(-1);
     zerver.put('API/hashtag', {groupName: opts['title'], rating : parseInt(rating)}, function(str){
-      App.load('new');
+      App.load('social');
       App.removeFromStack(-1);
     });
   }
@@ -406,12 +413,13 @@ $(page).on('appReady', function(){
     super_el = $('<div class="groupcontainer"></div>');
     var i =0;
     for(i = 0; i< hashtags.length; i++){
+      rating = Math.round(hashtags[i]['rating']);
       el = $('<div class="populate_group"><div class="info"></div></div>');
       el.find('.info').append('<h3>' + '<a href="kik-share://kik.com/g/' + hashtags[i]['hashtag'] + '">' + hashtags[i]['hashtag'] + '</a></h3>');
       el.find('.info').append('<p>' + hashtags[i]['desc'] + '</p>');
       el.find('.info').append('<div class="stars"></div>');
       el.find('.info').append('<div class="rater">Rate the group <i class="fa fa-thumbs-up"></i></div>')
-
+      el.attr('rating', rating);
       el.find('.rater').on('click', function(){
         openDialog($(this).parent().parent());
       });
@@ -463,7 +471,7 @@ App.dialog(opts, function(choice) {
   if(choice && radio.selected) {
     rating = radio.selected.id.slice(-1);
     zerver.put('API/hashtag', {groupName: opts['title'], rating : parseInt(rating)}, function(str){
-      App.load('new');
+      App.load('sports');
       App.removeFromStack(-1);
     });
   }
@@ -477,12 +485,13 @@ $(page).on('appReady', function(){
     super_el = $('<div class="groupcontainer"></div>');
     var i =0;
     for(i = 0; i< hashtags.length; i++){
+      rating = Math.round(hashtags[i]['rating']);
       el = $('<div class="populate_group"><div class="info"></div></div>');
       el.find('.info').append('<h3>' + '<a href="kik-share://kik.com/g/' + hashtags[i]['hashtag'] + '">' + hashtags[i]['hashtag'] + '</a></h3>');
       el.find('.info').append('<p>' + hashtags[i]['desc'] + '</p>');
       el.find('.info').append('<div class="stars"></div>');
       el.find('.info').append('<div class="rater">Rate the group <i class="fa fa-thumbs-up"></i></div>')
-
+      el.attr('rating', rating);
       el.find('.rater').on('click', function(){
         openDialog($(this).parent().parent());
       });
@@ -534,7 +543,7 @@ App.dialog(opts, function(choice) {
   if(choice && radio.selected) {
     rating = radio.selected.id.slice(-1);
     zerver.put('API/hashtag', {groupName: opts['title'], rating : parseInt(rating)}, function(str){
-      App.load('new');
+      App.load('television');
       App.removeFromStack(-1);
     });
   }
@@ -548,12 +557,13 @@ $(page).on('appReady', function(){
     super_el = $('<div class="groupcontainer"></div>');
     var i =0;
     for(i = 0; i< hashtags.length; i++){
+      rating = Math.round(hashtags[i]['rating']);
       el = $('<div class="populate_group"><div class="info"></div></div>');
       el.find('.info').append('<h3>' + '<a href="kik-share://kik.com/g/' + hashtags[i]['hashtag'] + '">' + hashtags[i]['hashtag'] + '</a></h3>');
       el.find('.info').append('<p>' + hashtags[i]['desc'] + '</p>');
       el.find('.info').append('<div class="stars"></div>');
       el.find('.info').append('<div class="rater">Rate the group <i class="fa fa-thumbs-up"></i></div>')
-
+      el.attr('rating', rating);
       el.find('.rater').on('click', function(){
         openDialog($(this).parent().parent());
       });
@@ -605,7 +615,7 @@ App.dialog(opts, function(choice) {
   if(choice && radio.selected) {
     rating = radio.selected.id.slice(-1);
     zerver.put('API/hashtag', {groupName: opts['title'], rating : parseInt(rating)}, function(str){
-      App.load('new');
+      App.load('other');
       App.removeFromStack(-1);
     });
   }
@@ -619,12 +629,13 @@ $(page).on('appReady', function(){
     super_el = $('<div class="groupcontainer"></div>');
     var i =0;
     for(i = 0; i< hashtags.length; i++){
+      rating = Math.round(hashtags[i]['rating']);
       el = $('<div class="populate_group"><div class="info"></div></div>');
       el.find('.info').append('<h3>' + '<a href="kik-share://kik.com/g/' + hashtags[i]['hashtag'] + '">' + hashtags[i]['hashtag'] + '</a></h3>');
       el.find('.info').append('<p>' + hashtags[i]['desc'] + '</p>');
       el.find('.info').append('<div class="stars"></div>');
       el.find('.info').append('<div class="rater">Rate the group <i class="fa fa-thumbs-up"></i></div>');
-
+      el.attr('rating', rating);
       el.find('.rater').on('click', function(){
         openDialog($(this).parent().parent());
       });
