@@ -59,8 +59,9 @@ App.controller('new', function (page) {
             el.find('.info').append('<div class="stars"></div>');
             el.find('.info').append('<div class="rater">Rate the group <i class="fa fa-thumbs-up"></i></div>');
             el.attr('rating', rating);
-            el.on('click', function(){
-              openDialog($(this));
+            el.find('.rater').on('click', function(){
+              console.log(el);
+              openDialog($(el));
             });
             super_el.append(el);
           }

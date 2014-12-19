@@ -29,7 +29,8 @@ App.dialog(opts, function(choice) {
   if(choice && radio.selected) {
     rating = radio.selected.id.slice(-1);
     zerver.put('API/hashtag', {groupName: opts['title'], rating : parseInt(rating)}, function(str){
-
+      App.load('new');
+      App.removeFromStack(-1);
     });
   }
 });
@@ -45,6 +46,7 @@ $(page).on('appReady', function(){
       el = $('<div class="populate_group"><div class="info"></div></div>');
       el.find('.info').append('<h3>' + hashtags[i]['hashtag'] + '</h3>');
       el.find('.info').append('<p>' + hashtags[i]['desc'] + '</p>');
+      el.find('.info').append('<div class="stars"></div>');
       el.find('.info').append('<div class="rater">Rate the group <i class="fa fa-thumbs-up"></i></div>')
 
       el.on('click', function(){
@@ -89,7 +91,8 @@ App.dialog(opts, function(choice) {
   if(choice && radio.selected) {
     rating = radio.selected.id.slice(-1);
     zerver.put('API/hashtag', {groupName: opts['title'], rating : parseInt(rating)}, function(str){
-
+      App.load('new');
+      App.removeFromStack(-1);
     });
   }
 });
@@ -105,6 +108,7 @@ $(page).on('appReady', function(){
       el = $('<div class="populate_group"><div class="info"></div></div>');
       el.find('.info').append('<h3>' + hashtags[i]['hashtag'] + '</h3>');
       el.find('.info').append('<p>' + hashtags[i]['desc'] + '</p>');
+      el.find('.info').append('<div class="stars"></div>');
       el.find('.info').append('<div class="rater">Rate the group <i class="fa fa-thumbs-up"></i></div>')
 
       el.on('click', function(){
@@ -149,7 +153,8 @@ App.dialog(opts, function(choice) {
   if(choice && radio.selected) {
     rating = radio.selected.id.slice(-1);
     zerver.put('API/hashtag', {groupName: opts['title'], rating : parseInt(rating)}, function(str){
-
+      App.load('new');
+      App.removeFromStack(-1);
     });
   }
 });
@@ -165,6 +170,7 @@ $(page).on('appReady', function(){
       el = $('<div class="populate_group"><div class="info"></div></div>');
       el.find('.info').append('<h3>' + hashtags[i]['hashtag'] + '</h3>');
       el.find('.info').append('<p>' + hashtags[i]['desc'] + '</p>');
+      el.find('.info').append('<div class="stars"></div>');
       el.find('.info').append('<div class="rater">Rate the group <i class="fa fa-thumbs-up"></i></div>')
 
       el.on('click', function(){
@@ -209,7 +215,8 @@ App.dialog(opts, function(choice) {
   if(choice && radio.selected) {
     rating = radio.selected.id.slice(-1);
     zerver.put('API/hashtag', {groupName: opts['title'], rating : parseInt(rating)}, function(str){
-
+      App.load('new');
+      App.removeFromStack(-1);
     });
   }
 });
@@ -225,6 +232,7 @@ $(page).on('appReady', function(){
       el = $('<div class="populate_group"><div class="info"></div></div>');
       el.find('.info').append('<h3>' + hashtags[i]['hashtag'] + '</h3>');
       el.find('.info').append('<p>' + hashtags[i]['desc'] + '</p>');
+      el.find('.info').append('<div class="stars"></div>');
       el.find('.info').append('<div class="rater">Rate the group <i class="fa fa-thumbs-up"></i></div>')
 
       el.on('click', function(){
@@ -269,7 +277,8 @@ App.dialog(opts, function(choice) {
   if(choice && radio.selected) {
     rating = radio.selected.id.slice(-1);
     zerver.put('API/hashtag', {groupName: opts['title'], rating : parseInt(rating)}, function(str){
-
+      App.load('new');
+      App.removeFromStack(-1);
     });
   }
 });
@@ -285,6 +294,7 @@ $(page).on('appReady', function(){
       el = $('<div class="populate_group"><div class="info"></div></div>');
       el.find('.info').append('<h3>' + hashtags[i]['hashtag'] + '</h3>');
       el.find('.info').append('<p>' + hashtags[i]['desc'] + '</p>');
+      el.find('.info').append('<div class="stars"></div>');
       el.find('.info').append('<div class="rater">Rate the group <i class="fa fa-thumbs-up"></i></div>')
 
       el.on('click', function(){
@@ -329,7 +339,8 @@ App.dialog(opts, function(choice) {
   if(choice && radio.selected) {
     rating = radio.selected.id.slice(-1);
     zerver.put('API/hashtag', {groupName: opts['title'], rating : parseInt(rating)}, function(str){
-
+      App.load('new');
+      App.removeFromStack(-1);
     });
   }
 });
@@ -345,6 +356,7 @@ $(page).on('appReady', function(){
       el = $('<div class="populate_group"><div class="info"></div></div>');
       el.find('.info').append('<h3>' + hashtags[i]['hashtag'] + '</h3>');
       el.find('.info').append('<p>' + hashtags[i]['desc'] + '</p>');
+      el.find('.info').append('<div class="stars"></div>');
       el.find('.info').append('<div class="rater">Rate the group <i class="fa fa-thumbs-up"></i></div>')
 
       el.on('click', function(){
@@ -389,7 +401,8 @@ App.dialog(opts, function(choice) {
   if(choice && radio.selected) {
     rating = radio.selected.id.slice(-1);
     zerver.put('API/hashtag', {groupName: opts['title'], rating : parseInt(rating)}, function(str){
-
+      App.load('new');
+      App.removeFromStack(-1);
     });
   }
 });
@@ -405,6 +418,7 @@ $(page).on('appReady', function(){
       el = $('<div class="populate_group"><div class="info"></div></div>');
       el.find('.info').append('<h3>' + hashtags[i]['hashtag'] + '</h3>');
       el.find('.info').append('<p>' + hashtags[i]['desc'] + '</p>');
+      el.find('.info').append('<div class="stars"></div>');
       el.find('.info').append('<div class="rater">Rate the group <i class="fa fa-thumbs-up"></i></div>')
 
       el.on('click', function(){
@@ -449,7 +463,8 @@ App.dialog(opts, function(choice) {
   if(choice && radio.selected) {
     rating = radio.selected.id.slice(-1);
     zerver.put('API/hashtag', {groupName: opts['title'], rating : parseInt(rating)}, function(str){
-
+      App.load('new');
+      App.removeFromStack(-1);
     });
   }
 });
@@ -465,6 +480,7 @@ $(page).on('appReady', function(){
       el = $('<div class="populate_group"><div class="info"></div></div>');
       el.find('.info').append('<h3>' + hashtags[i]['hashtag'] + '</h3>');
       el.find('.info').append('<p>' + hashtags[i]['desc'] + '</p>');
+      el.find('.info').append('<div class="stars"></div>');
       el.find('.info').append('<div class="rater">Rate the group <i class="fa fa-thumbs-up"></i></div>')
 
       el.on('click', function(){
@@ -509,7 +525,8 @@ App.dialog(opts, function(choice) {
   if(choice && radio.selected) {
     rating = radio.selected.id.slice(-1);
     zerver.put('API/hashtag', {groupName: opts['title'], rating : parseInt(rating)}, function(str){
-
+      App.load('new');
+      App.removeFromStack(-1);
     });
   }
 });
@@ -525,6 +542,7 @@ $(page).on('appReady', function(){
       el = $('<div class="populate_group"><div class="info"></div></div>');
       el.find('.info').append('<h3>' + hashtags[i]['hashtag'] + '</h3>');
       el.find('.info').append('<p>' + hashtags[i]['desc'] + '</p>');
+      el.find('.info').append('<div class="stars"></div>');
       el.find('.info').append('<div class="rater">Rate the group <i class="fa fa-thumbs-up"></i></div>')
 
       el.on('click', function(){
