@@ -10,7 +10,7 @@ App.controller('search_group', function (page) {
 
     $(page).on('appShow', function(){
 
-      zerver.get('API/view', function(hashtags){
+      zerver.get('API/hashtag', function(hashtags){
         super_el = $('<div class="groupcontainer"></div>');
         for(var i = 0; i< hashtags.length; i++){
           el = $('<div class="populate_group"><div class="info"></div></div>');
