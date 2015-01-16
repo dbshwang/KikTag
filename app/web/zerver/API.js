@@ -123,7 +123,7 @@ function connectToDB(callback){
   var MongoClient = require('mongodb').MongoClient
   , format  = require('util').format;
   collection = {};
-  MongoClient.connect('mongodb://10.10.20.84:27017/HASHTAGS', function(err, db) {
+  MongoClient.connect('mongodb://localhost:27017/HASHTAGS', function(err, db) {
     if(err) throw err;
     callback(db);
   });

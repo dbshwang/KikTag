@@ -7,6 +7,7 @@
   },
   "dependencies" : {
     "zerver" : "0.15.x",
+    "mongodb" : "*",
     "kik-lib" : "1.0.0"
   },
   "scripts" : {
